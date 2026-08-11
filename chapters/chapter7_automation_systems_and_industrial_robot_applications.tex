@@ -1,9 +1,11 @@
 \section{บทที่ 7 ระบบอัตโนมัติและการประยุกต์ใช้งานหุ่นยนต์อุตสาหกรรม}
 
-\textbf{ชื่อบทภาษาอังกฤษ:} Automation Systems and Industrial Robot Applications\\
-\textbf{รายวิชา:} หุ่นยนต์ในระบบงานอุตสาหกรรม (Industrial Robots)\\
-\textbf{รหัสวิชา:} 5574506\\
-\textbf{หน่วยกิต:} 3(1-4-4)\\
+\begin{tabularx}{\textwidth}{@{}L{0.24\textwidth}Y@{}}
+\textbf{ชื่อบทภาษาอังกฤษ:} & Automation Systems and Industrial Robot Applications \\
+\textbf{รายวิชา:} & หุ่นยนต์ในระบบงานอุตสาหกรรม (Industrial Robots) \\
+\textbf{รหัสวิชา:} & 5574506 \\
+\textbf{หน่วยกิต:} & 3(1-4-4) \\
+\end{tabularx}
 
 \subsection{7.1 แนวคิดสำคัญของบท}
 
@@ -51,7 +53,8 @@
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{l l l}
+    \small
+    \begin{tabularx}{\textwidth}{L{0.18\textwidth} L{0.26\textwidth} Y}
         \hline
         \textbf{คำศัพท์ภาษาไทย} & \textbf{คำศัพท์ภาษาอังกฤษ} & \textbf{ความหมายโดยย่อ} \\
         \hline
@@ -73,7 +76,7 @@
         ผลตอบแทนการลงทุน & Return on Investment: ROI & อัตราส่วนผลประโยชน์สุทธิต่อเงินลงทุน มักรายงานเป็นร้อยละ \\
         ระยะเวลาคืนทุน & Payback Period & เวลาที่ผลประหยัดสะสมเท่ากับเงินลงทุนเริ่มต้น \\
         \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 
@@ -97,23 +100,32 @@
 
 \begin{verbatim}
 ความต้องการของกระบวนการผลิต
-          ↓
+          |
+          v
 วิเคราะห์ชิ้นงานและงานที่ต้องทำ
-          ↓
+          |
+          v
 เลือกชนิดหุ่นยนต์ + Payload + Reach + EOAT
-          ↓
+          |
+          v
 ออกแบบ Layout, Fixture, Conveyor และ Utility
-          ↓
+          |
+          v
 บูรณาการ PLC, Sensor, Machine Vision และเครือข่าย
-          ↓
+          |
+          v
 ออกแบบลำดับการทำงานและ Interlock
-          ↓
+          |
+          v
 จำลอง Reach, Collision และ Cycle Time
-          ↓
+          |
+          v
 ประเมินความเสี่ยงและระบบความปลอดภัย
-          ↓
+          |
+          v
 Commissioning และทดสอบสมรรถนะ
-          ↓
+          |
+          v
 ประเมินคุณภาพ กำลังการผลิต OEE และ ROI
 \end{verbatim}
 
@@ -131,7 +143,8 @@ Commissioning และทดสอบสมรรถนะ
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{l l l}
+    \small
+    \begin{tabularx}{\textwidth}{L{0.18\textwidth} Y Y}
         \hline
         \textbf{ระดับ} & \textbf{ตัวอย่างองค์ประกอบ} & \textbf{หน้าที่หลัก} \\
         \hline
@@ -141,7 +154,7 @@ Commissioning และทดสอบสมรรถนะ
         ระดับสายการผลิต & Line PLC, SCADA, Andon & ประสานหลายเซลล์ ติดตามสถานะและการหยุดผลิต \\
         ระดับโรงงาน & MES, Production Database, Maintenance System & จัดการคำสั่งผลิต Traceability คุณภาพ และข้อมูลสมรรถนะ \\
         \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 \subsubsection{7.6.2 หลักคิด “กระบวนการ–ชิ้นงาน–ระบบ–คน”}
@@ -166,20 +179,20 @@ Commissioning และทดสอบสมรรถนะ
 ตัวอย่างองค์ประกอบพื้นฐานมีดังนี้
 
 \begin{verbatim}
-┌──────────────────────────────────────────────────────────┐
-│                    ROBOT CELL                            │
-│  ┌──────────────── Safety Fence ──────────────────────┐  │
-│  │                                                     │  │
-│  │ Conveyor IN → Sensor → Robot + EOAT → Conveyor OUT │  │
-│  │                         ↕                           │  │
-│  │                    Fixture / Jig                    │  │
-│  │                         ↕                           │  │
-│  │                  Camera + Lighting                  │  │
-│  │                                                     │  │
-│  └──────── Safety Door + Interlock ────────────────────┘  │
-│     E-Stop      HMI      PLC/Safety PLC      Utilities    │
-│     Robot Controller     Process Controller                │
-└──────────────────────────────────────────────────────────┘
++----------------------------------------------------------+
+|                    ROBOT CELL                            |
+|  +---------------- Safety Fence ----------------------+   |
+|  |                                                    |   |
+|  | Conveyor IN -> Sensor -> Robot + EOAT -> Conveyor  |   |
+|  |                         |                          |   |
+|  |                    Fixture / Jig                   |   |
+|  |                         |                          |   |
+|  |                  Camera + Lighting                 |   |
+|  |                                                    |   |
+|  +-------- Safety Door + Interlock -------------------+   |
+|     E-Stop      HMI      PLC/Safety PLC      Utilities    |
+|     Robot Controller     Process Controller               |
++----------------------------------------------------------+
 \end{verbatim}
 
 \subsubsection{7.7.2 องค์ประกอบของ Robot Cell}
@@ -306,7 +319,7 @@ Layout ต้องสมดุลระหว่างพื้นที่ต�
     \item บุคคลที่อาจสัมผัส: Operator, Programmer, Maintenance, Visitor
     \item โหมดงาน: Automatic, Teach, Setup, Recovery, Maintenance
     \item ความรุนแรงและความน่าจะเป็น
-    \item มาตรการลดความเสี่ยงตามลำดับ: ออกแบบให้ปลอดภัย → ป้องกันทางวิศวกรรม → ขั้นตอนปฏิบัติและการฝึกอบรม
+    \item มาตรการลดความเสี่ยงตามลำดับ: ออกแบบให้ปลอดภัย \(\rightarrow\) ป้องกันทางวิศวกรรม \(\rightarrow\) ขั้นตอนปฏิบัติและการฝึกอบรม
 \end{itemize}
 
 \paragraph{ขั้นที่ 7 จำลองและตรวจสอบก่อนสร้างจริง}
@@ -501,7 +514,8 @@ R_{actual}=240\times0.8565\approx205.6\ \text{ชิ้น/ชั่วโมง
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{l r l l}
+    \small
+    \begin{tabularx}{\textwidth}{L{0.18\textwidth} L{0.20\textwidth} Y Y}
         \hline
         \textbf{พารามิเตอร์} & \textbf{ช่วงตัวอย่างเพื่อการเรียนรู้} & \textbf{ผลกระทบหลัก} & \textbf{ข้อควรระวัง} \\
         \hline
@@ -512,7 +526,7 @@ R_{actual}=240\times0.8565\approx205.6\ \text{ชิ้น/ชั่วโมง
         Torch Angle & โดยทั่วไปประมาณ 5–15° ตามวิธีที่กำหนด & มีผลต่อทิศทางบ่อหลอม การซึมลึก และรูปร่างแนวเชื่อม & ต้องแยก Work Angle และ Travel Angle \\
         Contact Tip-to-Work Distance & ตาม WPS และชนิดกระบวนการ & มีผลต่อกระแส ความเสถียร และการป้องกันแก๊ส & ต้องควบคุมระหว่าง Path และ Orientation \\
         \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 \begin{quote}
@@ -832,7 +846,8 @@ Cognex อธิบายว่า Vision-Guided Robotics ช่วยให้�
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{l l l l l}
+    \small
+    \begin{tabularx}{\textwidth}{L{0.14\textwidth} L{0.16\textwidth} Y Y L{0.18\textwidth}}
         \hline
         \textbf{ประเภท} & \textbf{ข้อมูลที่ได้} & \textbf{จุดเด่น} & \textbf{ข้อจำกัด} & \textbf{ตัวอย่างการใช้งาน} \\
         \hline
@@ -842,7 +857,7 @@ Cognex อธิบายว่า Vision-Guided Robotics ช่วยให้�
         Structured Light & ภาพรูปแบบแสงที่ฉายบนวัตถุ & ให้ Point Cloud หรือแผนที่ความลึกละเอียด & อาจไวต่อผิวสะท้อน แสงภายนอก และการบัง & 3D Measurement, Depalletizing, Inspection \\
         Time of Flight (ToF) & ระยะทางจากเวลา/เฟสของแสง & ได้ Depth Map แบบ Real-time & ความละเอียดเชิงพื้นที่และความแม่นยำอาจต่ำกว่าระบบ 3D บางชนิด & Obstacle Detection, Volume, Navigation \\
         \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 \begin{quote}
@@ -1008,7 +1023,7 @@ ABB ระบุว่า Delta Robot ตระกูล IRB 360/365 รอง�
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/figure-05.png}
+    \includegraphics[width=0.8\textwidth]{images/chapter7/figure-05.png}
     \caption{Delta Robot Pick and Place ร่วมกับสายพานและกล้อง}
 \end{figure}
 
@@ -1127,7 +1142,7 @@ v_c=\frac{\Delta C\,k}{\Delta t}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/chapter7/cfigure-06.png}
+    \includegraphics[width=0.8\textwidth]{images/chapter7/figure-06.png}
     \caption{Conveyor Tracking ด้วย Encoder และ Robot Offset}
 \end{figure}
 
@@ -1140,7 +1155,8 @@ Robot Cell โดยทั่วไปมีตัวควบคุมหลา
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{l l l}
+    \small
+    \begin{tabularx}{\textwidth}{L{0.22\textwidth} Y Y}
         \hline
         \textbf{ตัวควบคุม} & \textbf{หน้าที่หลัก} & \textbf{ตัวอย่างข้อมูลที่แลกเปลี่ยน} \\
         \hline
@@ -1151,7 +1167,7 @@ Robot Cell โดยทั่วไปมีตัวควบคุมหลา
         Process Controller & ควบคุมกระบวนการเฉพาะ & Weld Current, Torque, Dispense Flow, Paint Flow \\
         HMI / SCADA & แสดงสถานะ Alarm Recipe และข้อมูลการผลิต & Mode, Count, Downtime, Alarm History \\
         \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 หลักการสำคัญคือกำหนด \textbf{เจ้าของสถานะ (State Ownership)} ให้ชัดเจน เช่น PLC เป็นผู้ตัดสินว่า Cell พร้อมเริ่มรอบหรือไม่ แต่ Robot Controller เป็นผู้ยืนยันว่า Robot อยู่ Home และไม่มี Fault หากหลายตัวควบคุมเขียนสัญญาณเดียวกันจะทำให้วิเคราะห์ปัญหาได้ยาก
@@ -1162,9 +1178,10 @@ Robot Cell โดยทั่วไปมีตัวควบคุมหลา
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{l l}
+    \small
+    \begin{tabularx}{\textwidth}{L{0.16\textwidth} Y}
         \hline
-        \textbf{PLC → Robot} & \textbf{ความหมาย} \\
+        \textbf{PLC \(\rightarrow\) Robot} & \textbf{ความหมาย} \\
         \hline
         \texttt{CELL\_AUTO} & Cell อยู่ในโหมดอัตโนมัติ \\
         \texttt{SAFETY\_OK} & ระบบความปลอดภัยอนุญาตให้ทำงาน \\
@@ -1173,14 +1190,14 @@ Robot Cell โดยทั่วไปมีตัวควบคุมหลา
         \texttt{START\_REQ} & ขอให้หุ่นยนต์เริ่ม Cycle \\
         \texttt{RESET\_REQ} & ขอ Reset Fault ตามเงื่อนไขที่อนุญาต \\
         \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 \begin{table}[htbp]
     \centering
     \begin{tabular}{l l}
         \hline
-        \textbf{Robot → PLC} & \textbf{ความหมาย} \\
+        \textbf{Robot \(\rightarrow\) PLC} & \textbf{ความหมาย} \\
         \hline
         \texttt{ROBOT\_READY} & หุ่นยนต์พร้อมรับคำสั่ง \\
         \texttt{ROBOT\_BUSY} & กำลังทำ Cycle \\
@@ -1199,9 +1216,9 @@ Robot Cell โดยทั่วไปมีตัวควบคุมหลา
 ตัวอย่างสถานะ
 
 \begin{verbatim}
-STOPPED → READY → STARTING → RUNNING → COMPLETE → READY
-              ↘ FAULT → RECOVERY ↗
-              ↘ SAFETY_STOP → RESET_REQUIRED ↗
+STOPPED -> READY -> STARTING -> RUNNING -> COMPLETE -> READY
+              \-> FAULT -> RECOVERY
+              \-> SAFETY_STOP -> RESET_REQUIRED
 \end{verbatim}
 
 สถานะ \textbf{FAULT} และ \textbf{SAFETY\_STOP} ควรแยกกัน เพราะสาเหตุ วิธี Reset และเงื่อนไขกลับสู่การผลิตต่างกัน การกด Reset ไม่ควรทำให้ระบบเริ่มเคลื่อนที่ทันทีโดยไม่มีคำสั่งเริ่มใหม่
@@ -1271,7 +1288,8 @@ Alarm ที่ดีควรระบุ
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{l l l l}
+    \small
+    \begin{tabularx}{\textwidth}{L{0.24\textwidth} Y Y Y}
         \hline
         \textbf{เกณฑ์} & \textbf{1 คะแนน} & \textbf{3 คะแนน} & \textbf{5 คะแนน} \\
         \hline
@@ -1283,7 +1301,7 @@ Alarm ที่ดีควรระบุ
         ความพร้อมของระบบรอบข้าง & ต้องปรับทั้งหมด & ปรับบางส่วน & มี PLC, Fixture และ Material Flow พร้อม \\
         ความยืดหยุ่นที่ต้องการ & สูงและไม่คาดการณ์ & เปลี่ยน Recipe/Tool ได้ & รุ่นผลิตภัณฑ์คงที่หรือเป็นตระกูลเดียวกัน \\
         \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 คะแนนรวมใช้คัดกรองเบื้องต้นเท่านั้น ต้องยืนยันด้วยการทดลอง กระบวนการจำลอง และการวิเคราะห์ทางเศรษฐศาสตร์
@@ -1627,13 +1645,17 @@ Vacuum Gripper เหมาะเมื่อผิวกล่องเรี�
 
 \begin{verbatim}
 HOME/SAFE
-   ↓
-APPROACH_PICK → PICK → GRIP_CLOSE → GRIP_OK
-   ↓
-DEPART_PICK → TRANSFER → APPROACH_PLACE
-   ↓
-PLACE → GRIP_OPEN → RELEASE_OK → DEPART_PLACE
-   ↓
+   |
+   v
+APPROACH_PICK -> PICK -> GRIP_CLOSE -> GRIP_OK
+   |
+   v
+DEPART_PICK -> TRANSFER -> APPROACH_PLACE
+   |
+   v
+PLACE -> GRIP_OPEN -> RELEASE_OK -> DEPART_PLACE
+   |
+   v
 HOME/SAFE
 \end{verbatim}
 
@@ -1771,7 +1793,7 @@ Success\ Rate=\frac{N_{success}}{N_{total}}\times100\%
 
 \subsubsection{2. หลักการและทฤษฎีที่เกี่ยวข้อง}
 
-การออกแบบเริ่มจาก Task Analysis → Robot/EOAT Selection → Layout → Control Sequence → Safety → Cycle Time → Economic Evaluation ทุกสมมติฐานต้องแสดงที่มาและแยกระหว่างข้อมูลกำหนดกับค่าประมาณของกลุ่ม
+การออกแบบเริ่มจาก Task Analysis \(\rightarrow\) Robot/EOAT Selection \(\rightarrow\) Layout \(\rightarrow\) Control Sequence \(\rightarrow\) Safety \(\rightarrow\) Cycle Time \(\rightarrow\) Economic Evaluation ทุกสมมติฐานต้องแสดงที่มาและแยกระหว่างข้อมูลกำหนดกับค่าประมาณของกลุ่ม
 
 \subsubsection{3. อุปกรณ์ เครื่องมือ และซอฟต์แวร์}
 
@@ -2154,10 +2176,10 @@ Availability แทนความสูญเสียจากเวลาห�
 
 \paragraph{ข้อ 10}
 
-\textbf{ตัวอย่างสัญญาณ PLC → Robot:} \texttt{CELL\_AUTO}, \texttt{SAFETY\_OK}, \texttt{PART\_A\_READY}, \texttt{FIXTURE\_B\_READY}, \texttt{START\_REQ}, \texttt{RESET\_REQ}\\
-\textbf{ตัวอย่างสัญญาณ Robot → PLC:} \texttt{ROBOT\_READY}, \texttt{ROBOT\_BUSY}, \texttt{GRIP\_OK}, \texttt{CYCLE\_DONE}, \texttt{ROBOT\_HOME}, \texttt{ROBOT\_FAULT}
+\textbf{ตัวอย่างสัญญาณ PLC \(\rightarrow\) Robot:} \texttt{CELL\_AUTO}, \texttt{SAFETY\_OK}, \texttt{PART\_A\_READY}, \texttt{FIXTURE\_B\_READY}, \texttt{START\_REQ}, \texttt{RESET\_REQ}\\
+\textbf{ตัวอย่างสัญญาณ Robot \(\rightarrow\) PLC:} \texttt{ROBOT\_READY}, \texttt{ROBOT\_BUSY}, \texttt{GRIP\_OK}, \texttt{CYCLE\_DONE}, \texttt{ROBOT\_HOME}, \texttt{ROBOT\_FAULT}
 
-\textbf{ลำดับ:} PLC ตรวจความพร้อม → ยก \texttt{START\_REQ} → Robot ยก \texttt{ROBOT\_BUSY} → Robot หยิบ A → ตรวจ \texttt{GRIP\_OK} → วาง B → ยก \texttt{CYCLE\_DONE} → PLC ลด \texttt{START\_REQ} → Robot ลด \texttt{CYCLE\_DONE}
+\textbf{ลำดับ:} PLC ตรวจความพร้อม \(\rightarrow\) ยก \texttt{START\_REQ} \(\rightarrow\) Robot ยก \texttt{ROBOT\_BUSY} \(\rightarrow\) Robot หยิบ A \(\rightarrow\) ตรวจ \texttt{GRIP\_OK} \(\rightarrow\) วาง B \(\rightarrow\) ยก \texttt{CYCLE\_DONE} \(\rightarrow\) PLC ลด \texttt{START\_REQ} \(\rightarrow\) Robot ลด \texttt{CYCLE\_DONE}
 
 \textbf{Timeout:} Start acknowledge timeout, Gripper close timeout, Fixture ready timeout และ Cycle timeout
 
@@ -2267,7 +2289,7 @@ Payback_{new}=\frac{4{,}500{,}000}{1{,}087{,}500}=4.14\ \text{ปี}
     \item \textbf{Layout:} Tray A และ B อยู่ด้านเดียวหรือสองด้านของ Robot, Assembly Fixture อยู่กลาง Workspace, สถานี Vision ก่อนหยิบ และ Conveyor/Tray Output หลังประกอบ Material Flow ไม่ตัดกับทางเข้าบำรุงรักษา
     \item \textbf{Robot/EOAT:} SCARA เหมาะเมื่อ Orientation หลักเป็นแนวดิ่งและงานอยู่บนระนาบ หรือ Articulated Robot ขนาดเล็กเมื่อจำเป็นต้องเปลี่ยน Orientation EOAT อาจเป็น Dual Gripper เพื่อลด Tool Change พร้อม Force/Compliance ในแกนกด
     \item \textbf{Sensor/Vision:} Vision ตรวจด้านและตำแหน่ง A/B, Sensor Part Present, Grip Confirmation, Fixture Clamp, Force/Displacement Monitoring และ OK/NG
-    \item \textbf{Sequence:} ตรวจ Cell Safe → Vision Locate A/B → Pick A → Place Fixture → Pick B → Align → Force-controlled Insert → Verify Force/Position → Release → Mark Result → Output
+    \item \textbf{Sequence:} ตรวจ Cell Safe \(\rightarrow\) Vision Locate A/B \(\rightarrow\) Pick A \(\rightarrow\) Place Fixture \(\rightarrow\) Pick B \(\rightarrow\) Align \(\rightarrow\) Force-controlled Insert \(\rightarrow\) Verify Force/Position \(\rightarrow\) Release \(\rightarrow\) Mark Result \(\rightarrow\) Output
     \item \textbf{Safety:} Enclosure, Interlocked Tray Door, E-Stop, Safe Speed ใน Teach Mode, Recovery Procedure และพื้นที่ Maintenance
     \item \textbf{Cycle Time ตัวอย่าง:} Vision 1.0 s, Pick A 2.0 s, Pick B 2.0 s, Assembly 3.0 s, Output 1.0 s, Allowance 1.0 s รวม 10 s โดยควรทำ Vision ของรอบถัดไปแบบขนานเมื่อเป็นไปได้
     \item \textbf{ความเสี่ยงและแผนทดสอบ:} พลาสติกเสียรูป, Gripper Mark, Misalignment, Vision Reflection, Force Sensor Drift และชิ้นส่วนติด Fixture ทดสอบ Gripper Force, Vision Repeatability, Force–Displacement Envelope, Cycle Run และ Fault Recovery ก่อนสร้างจริง
@@ -2280,7 +2302,8 @@ Payback_{new}=\frac{4{,}500{,}000}{1{,}087{,}500}=4.14\ \text{ปี}
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{l l l l l}
+    \scriptsize
+    \begin{tabularx}{\textwidth}{L{0.20\textwidth} L{0.13\textwidth} Y Y Y}
         \hline
         \textbf{ผลลัพธ์การเรียนรู้ประจำบท} & \textbf{เนื้อหาที่เกี่ยวข้อง} & \textbf{กิจกรรมการเรียนรู้} & \textbf{วิธีประเมิน} & \textbf{หลักฐานการเรียนรู้} \\
         \hline
@@ -2291,7 +2314,7 @@ Payback_{new}=\frac{4{,}500{,}000}{1{,}087{,}500}=4.14\ \text{ปี}
         CLO5 คำนวณ Conveyor Tracking และ ROI ได้ & 7.12, 7.15 & ตัวอย่างคำนวณและแบบฝึกหัดข้อ 5, 8, 12 & แบบฝึกหัดคำนวณและรายงานกลุ่ม & Encoder Calibration, ROI/Payback และ Sensitivity Table \\
         CLO6 ปฏิบัติและประเมิน Pick and Place/Robot Cell อย่างปลอดภัย & 7.18 & กิจกรรม 7-1 และ 7-2 & การสังเกตปฏิบัติ Rubric และรายงาน & โปรแกรม/Simulation, Checklist ความปลอดภัย, ผลทดลองและ Reflection \\
         \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 \subsubsection{7.23.1 สัดส่วนการประเมินที่แนะนำสำหรับบทนี้}
@@ -2316,7 +2339,8 @@ Payback_{new}=\frac{4{,}500{,}000}{1{,}087{,}500}=4.14\ \text{ปี}
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{l l}
+    \small
+    \begin{tabularx}{\textwidth}{L{0.16\textwidth} Y}
         \hline
         \textbf{ระดับ} & \textbf{คุณภาพผลงาน} \\
         \hline
@@ -2325,7 +2349,7 @@ Payback_{new}=\frac{4{,}500{,}000}{1{,}087{,}500}=4.14\ \text{ปี}
         2 พอใช้ & เลือกอุปกรณ์หรือ Layout ได้บางส่วน แต่ความสัมพันธ์ของ Sequence, Safety, Cycle Time หรือ ROI ยังไม่ชัด \\
         1 ต้องปรับปรุง & แบบออกแบบไม่ตอบข้อกำหนด ขาดข้อมูลสำคัญ ไม่แสดงสมมติฐาน หรือมีแนวทางที่เสี่ยง/ตรวจสอบไม่ได้ \\
         \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 
@@ -2414,7 +2438,8 @@ ABB RobotStudio และ FANUC ROBOGUIDE เป็นตัวอย่าง�
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{l l l l l}
+    \scriptsize
+    \begin{tabularx}{\textwidth}{L{0.14\textwidth} L{0.18\textwidth} Y Y L{0.16\textwidth}}
         \hline
         \textbf{องค์กร/ผู้จัดทำ} & \textbf{หัวข้อที่ควรค้น} & \textbf{คำค้นแนะนำ} & \textbf{จุดประสงค์ในการรับชม} & \textbf{ช่วงเวลาที่เหมาะสม} \\
         \hline
@@ -2426,7 +2451,7 @@ ABB RobotStudio และ FANUC ROBOGUIDE เป็นตัวอย่าง�
         OSHA & Industrial robot systems and safety & \texttt{OSHA industrial robot systems safety} & วิเคราะห์อันตรายในโหมด Setup, Maintenance และ Recovery & ก่อนกิจกรรมปฏิบัติการ \\
         American Welding Society & Structural welding code and welding standards & \texttt{AWS D1.1 2025 structural welding code} & แยกค่าตัวอย่างในชั้นเรียนออกจากข้อกำหนด WPS/มาตรฐานจริง & ระหว่างหัวข้องานเชื่อม \\
         \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 
