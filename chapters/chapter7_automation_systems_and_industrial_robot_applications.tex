@@ -7,7 +7,7 @@
 \textbf{หน่วยกิต:} & 3(1-4-4) \\
 \end{tabularx}
 
-\subsection{7.1 แนวคิดสำคัญของบท}
+\subsection{แนวคิดสำคัญของบท}
 
 การนำหุ่นยนต์อุตสาหกรรมไปใช้จริงไม่ได้สิ้นสุดที่การเลือกหุ่นยนต์หรือการเขียนโปรแกรมการเคลื่อนที่ แต่เป็นการออกแบบ \textbf{ระบบอัตโนมัติแบบบูรณาการ (Integrated Automation System)} ที่ทำให้หุ่นยนต์ อุปกรณ์จับยึดชิ้นงาน เครื่องมือปลายแขน ระบบลำเลียง ระบบตรวจจับ ระบบ Machine Vision ตัวควบคุม PLC และระบบความปลอดภัยทำงานประสานกันอย่างถูกต้อง
 
@@ -28,7 +28,7 @@
 
 
 
-\subsection{7.2 ความรู้พื้นฐานก่อนเรียน}
+\subsection{ความรู้พื้นฐานก่อนเรียน}
 
 ก่อนเรียนบทนี้ นักศึกษาควรมีความรู้หรือทักษะดังต่อไปนี้
 
@@ -49,7 +49,7 @@
 
 
 
-\subsection{7.3 คำสำคัญประจำบท}
+\subsection{คำสำคัญประจำบท}
 
 \begin{table}[htbp]
     \centering
@@ -98,48 +98,38 @@
 
 \subsection{7.5 แผนผังเนื้อหาของบท}
 
-\begin{verbatim}
-ความต้องการของกระบวนการผลิต
-          |
+\begin{center}
+ความต้องการของกระบวนการผลิต       
           v
 วิเคราะห์ชิ้นงานและงานที่ต้องทำ
-          |
           v
 เลือกชนิดหุ่นยนต์ + Payload + Reach + EOAT
-          |
           v
-ออกแบบ Layout, Fixture, Conveyor และ Utility
-          |
+ออกแบบ Layout, Fixture, Conveyor และ Utility      
           v
-บูรณาการ PLC, Sensor, Machine Vision และเครือข่าย
-          |
+บูรณาการ PLC, Sensor, Machine Vision และเครือข่าย 
           v
-ออกแบบลำดับการทำงานและ Interlock
-          |
+ออกแบบลำดับการทำงานและ Interlock   
           v
-จำลอง Reach, Collision และ Cycle Time
-          |
+จำลอง Reach, Collision และ Cycle Time   
           v
-ประเมินความเสี่ยงและระบบความปลอดภัย
-          |
+ประเมินความเสี่ยงและระบบความปลอดภัย     
           v
-Commissioning และทดสอบสมรรถนะ
-          |
+Commissioning และทดสอบสมรรถนะ 
           v
 ประเมินคุณภาพ กำลังการผลิต OEE และ ROI
-\end{verbatim}
-
+\end{center}
 ลำดับดังกล่าวสะท้อนหลักการสำคัญว่า Robot Cell ต้องเริ่มจาก \textbf{ความต้องการของงาน} ไม่ใช่เริ่มจากรุ่นหุ่นยนต์ที่มีอยู่เพียงอย่างเดียว การเลือกอุปกรณ์ก่อนวิเคราะห์กระบวนการอาจทำให้เกิดปัญหา Payload ไม่พอ Reach ไม่ถึง Cycle Time ไม่ทัน หรือจัดวางอุปกรณ์จนเข้าถึงเพื่อบำรุงรักษาได้ยาก
 
 
 
-\subsection{7.6 บทนำ: จากหุ่นยนต์หนึ่งตัวสู่ระบบอัตโนมัติในโรงงาน}
+\subsection{บทนำ: จากหุ่นยนต์หนึ่งตัวสู่ระบบอัตโนมัติในโรงงาน}
 
 ในโรงงานอุตสาหกรรม หุ่นยนต์มักเป็นเพียงหนึ่งองค์ประกอบของระบบที่ใหญ่กว่า ตัวอย่างเช่น งานหยิบชิ้นงานจากสายพานต้องอาศัย Sensor ตรวจจับชิ้นงาน Encoder วัดการเคลื่อนที่ กล้องระบุตำแหน่ง PLC จัดลำดับการทำงาน Robot Controller สร้างวิถี End Effector จับชิ้นงาน และระบบความปลอดภัยหยุดการเคลื่อนที่เมื่อบุคคลเข้าสู่พื้นที่อันตราย หากองค์ประกอบใดทำงานไม่สอดคล้องกัน แม้ตัวหุ่นยนต์จะมีสมรรถนะสูง ระบบโดยรวมก็อาจไม่สามารถผลิตได้อย่างต่อเนื่อง
 
 ข้อมูล World Robotics 2025 ของ International Federation of Robotics รายงานว่ามีการติดตั้งหุ่นยนต์อุตสาหกรรมทั่วโลก 542,000 หน่วยในปี 2024 และยอดติดตั้งสูงกว่า 500,000 หน่วยต่อปีเป็นปีที่สี่ติดต่อกัน สะท้อนว่าหุ่นยนต์เป็นองค์ประกอบหลักของระบบการผลิตสมัยใหม่ แต่การตัดสินใจลงทุนต้องพิจารณาความเหมาะสมของงานและการบูรณาการระบบ ไม่ใช่อาศัยแนวโน้มตลาดเพียงอย่างเดียว (IFR, 2025)
 
-\subsubsection{7.6.1 ระดับของระบบอัตโนมัติที่เกี่ยวข้อง}
+\subsubsection{ระดับของระบบอัตโนมัติที่เกี่ยวข้อง}
 
 \begin{table}[htbp]
     \centering
@@ -157,7 +147,7 @@ Commissioning และทดสอบสมรรถนะ
     \end{tabularx}
 \end{table}
 
-\subsubsection{7.6.2 หลักคิด “กระบวนการ–ชิ้นงาน–ระบบ–คน”}
+\subsubsection{หลักคิด “กระบวนการ–ชิ้นงาน–ระบบ–คน”}
 
 การออกแบบ Robot Cell ควรถามคำถามตามลำดับต่อไปนี้
 
@@ -170,9 +160,9 @@ Commissioning และทดสอบสมรรถนะ
 
 
 
-\subsection{7.7 Robot Cell: แนวคิด องค์ประกอบ และการออกแบบ}
+\subsection{Robot Cell: แนวคิด องค์ประกอบ และการออกแบบ}
 
-\subsubsection{7.7.1 นิยาม Robot Cell}
+\subsubsection{นิยาม Robot Cell}
 
 \textbf{Robot Cell} คือพื้นที่การผลิตที่ประกอบด้วยหุ่นยนต์อย่างน้อยหนึ่งตัว พร้อมอุปกรณ์กระบวนการ อุปกรณ์จับยึด ระบบลำเลียง ระบบควบคุม และมาตรการลดความเสี่ยงที่บูรณาการเป็นระบบสมบูรณ์ ขอบเขตของเซลล์อาจเป็นรั้วกายภาพ ม่านแสง Scanner หรือการแบ่งโซนที่ได้รับการประเมินความเสี่ยงแล้ว
 
@@ -195,7 +185,7 @@ Commissioning และทดสอบสมรรถนะ
 +----------------------------------------------------------+
 \end{verbatim}
 
-\subsubsection{7.7.2 องค์ประกอบของ Robot Cell}
+\subsubsection{องค์ประกอบของ Robot Cell}
 
 \paragraph{1) หุ่นยนต์และ Robot Controller}
 
@@ -237,7 +227,7 @@ PLC มักเป็นผู้จัดลำดับการทำงา�
 
 อาจประกอบด้วย Safety Fence, Interlocked Gate, Emergency Stop, Light Curtain, Laser Scanner, Safety Relay, Safety PLC, Safe Torque Off และฟังก์ชันจำกัดความเร็วหรือพื้นที่ตามความสามารถของระบบ การเลือกอุปกรณ์ต้องอ้างอิงการประเมินความเสี่ยง ไม่ควรกำหนดจากความเคยชินเพียงอย่างเดียว
 
-\subsubsection{7.7.3 ขั้นตอนการออกแบบ Robot Cell}
+\subsubsection{ขั้นตอนการออกแบบ Robot Cell}
 
 \paragraph{ขั้นที่ 1 วิเคราะห์งาน (Task Analysis)}
 
@@ -340,7 +330,7 @@ Layout ต้องสมดุลระหว่างพื้นที่ต�
     \item เอกสารสำรองโปรแกรม รายการ Parameter และแบบไฟฟ้า
 \end{itemize}
 
-\subsubsection{7.7.4 ตัวอย่างเพิ่มเติมเพื่อการเรียนรู้: ตรวจสอบ Payload และ Margin}
+\subsubsection{ตัวอย่างเพิ่มเติมเพื่อการเรียนรู้: ตรวจสอบ Payload และ Margin}
 
 \textbf{โจทย์:} หุ่นยนต์มี Payload พิกัด 20 kg ใช้ Gripper 6.0 kg, Tool Changer 1.5 kg, ชิ้นงานสูงสุด 8.0 kg และเผื่อสาย/ท่อ 0.8 kg จงคำนวณโหลดรวมและร้อยละการใช้ Payload
 
@@ -409,7 +399,7 @@ T_c=T_{robot}+T_{process}+T_{handling}+T_{wait}+T_{inspection}
 
 สมการนี้เป็นการรวมเวลาแบบลำดับต่อเนื่อง หากบางกิจกรรมทำพร้อมกัน ต้องวิเคราะห์ด้วย Timeline หรือ Sequence Chart และใช้เส้นทางวิกฤตแทนการบวกทุกค่าโดยตรง
 
-\subsubsection{7.8.2 อัตราการผลิตเชิงทฤษฎี}
+\subsubsection{อัตราการผลิตเชิงทฤษฎี}
 
 สำหรับหนึ่งชิ้นต่อรอบ
 
@@ -425,7 +415,7 @@ R_{ideal}=\frac{3600}{T_c}
 R_{ideal}=\frac{3600n}{T_c}
 \]
 
-\subsubsection{7.8.3 อัตราการผลิตจริงและประสิทธิภาพ}
+\subsubsection{อัตราการผลิตจริงและประสิทธิภาพ}
 
 ระบบจริงมีเวลาหยุดย่อย การเปลี่ยนรุ่น ของเสีย และการลดความเร็ว จึงอาจประมาณอัตราการผลิตจริงด้วย
 
@@ -443,7 +433,7 @@ R_{actual}=R_{ideal}\times A\times P\times Q
 
 ผลคูณ $A\times P\times Q$ เรียกว่า \textbf{Overall Equipment Effectiveness (OEE)} ในการใช้เพื่อการเรียนรู้ต้องกำหนดขอบเขตเครื่องจักรและเวลาวางแผนผลิตให้ชัดเจน
 
-\subsubsection{7.8.4 ตัวอย่างเพิ่มเติมเพื่อการเรียนรู้: Cycle Time และ Throughput}
+\subsubsection{ตัวอย่างเพิ่มเติมเพื่อการเรียนรู้: Cycle Time และ Throughput}
 
 Robot Cell หนึ่งมีเวลาต่อรอบดังนี้
 
@@ -478,7 +468,7 @@ R_{actual}=240\times0.8565\approx205.6\ \text{ชิ้น/ชั่วโมง
 
 ดังนั้นควรวางแผนกำลังการผลิตประมาณ 205 ชิ้น/ชั่วโมงภายใต้สมมติฐานดังกล่าว ไม่ควรใช้ค่า 240 ชิ้น/ชั่วโมงเป็นคำรับรองผลผลิตจริงโดยไม่พิจารณาความสูญเสีย
 
-\subsubsection{7.8.5 แนวทางลด Cycle Time โดยไม่ลดความปลอดภัย}
+\subsubsection{แนวทางลด Cycle Time โดยไม่ลดความปลอดภัย}
 
 \begin{itemize}
     \item ลดระยะทางที่ไม่สร้างคุณค่าและปรับตำแหน่ง Home ให้เหมาะสม
@@ -491,9 +481,9 @@ R_{actual}=240\times0.8565\approx205.6\ \text{ชิ้น/ชั่วโมง
 \end{itemize}
 
 
-\subsection{7.9 การประยุกต์ใช้งานหุ่นยนต์ในกระบวนการอุตสาหกรรม}
+\subsection{การประยุกต์ใช้งานหุ่นยนต์ในกระบวนการอุตสาหกรรม}
 
-\subsubsection{7.9.1 งานเชื่อมอาร์ก (Arc Welding)}
+\subsubsection{งานเชื่อมอาร์ก (Arc Welding)}
 
 งานเชื่อมอาร์กด้วยหุ่นยนต์เหมาะกับแนวเชื่อมที่มีรูปแบบซ้ำ ต้องการความสม่ำเสมอ และสามารถจัดตำแหน่งชิ้นงานด้วย Fixture ได้ หุ่นยนต์ทำหน้าที่ควบคุมตำแหน่ง ความเร็ว และมุมของ Torch ขณะที่ Welding Power Source และ Wire Feeder ควบคุมพลังงานและอัตราป้อนลวด
 
@@ -581,7 +571,7 @@ H=0.8\frac{24\times220}{8}=528\ \text{J/mm}
     \caption{Arc Welding Robot พร้อมระบบป้อนลวดและ Torch}
 \end{figure}
 
-\subsubsection{7.9.2 งานเชื่อมจุด (Resistance Spot Welding)}
+\subsubsection{งานเชื่อมจุด (Resistance Spot Welding)}
 
 งานเชื่อมจุดใช้มากในอุตสาหกรรมยานยนต์และงานแผ่นโลหะ หัวเชื่อมหรือ Welding Gun มีมวลสูงและสร้างแรงปฏิกิริยาระหว่างการกด จึงมักต้องใช้หุ่นยนต์ Payload สูงและโครงสร้างแข็งแรง
 
@@ -623,7 +613,7 @@ Q=I^2Rt
     \end{tabular}
 \end{table}
 
-\subsubsection{7.9.3 งานหยิบจับและวาง (Pick and Place)}
+\subsubsection{งานหยิบจับและวาง (Pick and Place)}
 
 Pick and Place เป็นงานพื้นฐานที่พบได้มาก ตั้งแต่ย้ายชิ้นส่วนระหว่าง Fixture ไปจนถึงคัดแยกอาหารหรือบรรจุภัณฑ์ ความท้าทายไม่ได้อยู่ที่การเคลื่อนที่เพียงอย่างเดียว แต่รวมถึงการตรวจจับตำแหน่ง การจับโดยไม่ทำให้ชิ้นงานเสียหาย การตรวจสอบการจับ และการประสานกับ Conveyor
 
@@ -668,7 +658,7 @@ F_{grip}\geq\frac{2.5\times2\times9.81}{2\times0.3}=81.75\ \text{N ต่อห�
 
 ควรเลือก Gripper ที่ให้แรงมากกว่าค่านี้ภายใต้แรงดันใช้งานจริง แต่ต้องไม่สูงจนทำให้ชิ้นงานเสียรูป
 
-\subsubsection{7.9.4 งานจัดเรียงพาเลท (Palletizing)}
+\subsubsection{งานจัดเรียงพาเลท (Palletizing)}
 
 Palletizing คือการจัดวางกล่อง ถุง หรือผลิตภัณฑ์ลงพาเลทเป็นรูปแบบที่กำหนด เป้าหมายหลัก ได้แก่ ความมั่นคงของกอง การใช้พื้นที่พาเลทอย่างมีประสิทธิภาพ การรองรับจำนวนชั้น และความสะดวกต่อการขนส่ง
 
@@ -723,7 +713,7 @@ N_{layer}=\left\lfloor\frac{1200}{300}\right\rfloor
     \caption{รูปแบบการจัดเรียงกล่องบนพาเลท}
 \end{figure}
 
-\subsubsection{7.9.5 งานประกอบชิ้นงาน (Assembly)}
+\subsubsection{งานประกอบชิ้นงาน (Assembly)}
 
 งานประกอบต้องการมากกว่าการไปถึงตำแหน่ง เพราะการสัมผัสระหว่างชิ้นส่วนสร้างแรงและอาจเกิดการติดขัด ตัวอย่างสำคัญ ได้แก่ Pin-in-Hole, Shaft-in-Bearing, Connector Insertion, Screwdriving และ Press Fitting
 
@@ -777,11 +767,11 @@ Clearance น้อยทำให้ประกอบแม่นยำแต�
     \item รูปร่างกราฟผิดปกติ เช่น เอียง ติดขัด หรือชิ้นส่วนไม่ครบ
 \end{itemize}
 
-\subsubsection{7.9.6 SCARA Robot ในงานประกอบอิเล็กทรอนิกส์}
+\subsubsection{SCARA Robot ในงานประกอบอิเล็กทรอนิกส์}
 
 SCARA มีความแข็งในแนวแกนตั้งและเคลื่อนที่บนระนาบได้เร็ว เหมาะกับ Pick and Place, Screwdriving, Dispensing และการประกอบชิ้นส่วนขนาดเล็ก ตัวเลข Accuracy หรือ Throughput ต้องพิจารณาจากรุ่นหุ่นยนต์ เครื่องมือ ระยะทาง และกระบวนการจริง เครื่องวางชิ้นส่วนอิเล็กทรอนิกส์ความเร็วสูงบางประเภทเป็นเครื่องจักรเฉพาะทาง ไม่ควรเหมารวมว่าหุ่นยนต์ SCARA ทั่วไปให้ Throughput เท่ากับเครื่อง Placement Machine
 
-\subsubsection{7.9.7 งานพ่นสีและเคลือบผิว (Painting and Coating)}
+\subsubsection{งานพ่นสีและเคลือบผิว (Painting and Coating)}
 
 งานพ่นสีมีข้อกำหนดเฉพาะด้านสภาพแวดล้อม ไอระเหยไวไฟ การป้องกันการระเบิด ความสะอาด และความสม่ำเสมอของ Path หุ่นยนต์ต้องเป็นรุ่นที่ผู้ผลิตรับรองสำหรับพื้นที่และกระบวนการที่กำหนด ไม่ใช่นำหุ่นยนต์ทั่วไปไปดัดแปลงเอง
 
@@ -811,9 +801,9 @@ ABB ระบุว่า IRB 5500 FlexPainter บูรณาการอุป
 \end{itemize}
 
 
-\subsection{7.10 Machine Vision ร่วมกับหุ่นยนต์}
+\subsection{Machine Vision ร่วมกับหุ่นยนต์}
 
-\subsubsection{7.10.1 บทบาทของ Machine Vision}
+\subsubsection{บทบาทของ Machine Vision}
 
 Machine Vision ทำให้หุ่นยนต์สามารถปรับการทำงานตามความแปรปรวนของชิ้นงาน แทนที่จะพึ่ง Fixture ที่กำหนดตำแหน่งคงที่ทุกครั้ง ตัวอย่างการใช้งาน ได้แก่
 
@@ -829,7 +819,7 @@ Machine Vision ทำให้หุ่นยนต์สามารถปร�
 
 Cognex อธิบายว่า Vision-Guided Robotics ช่วยให้หุ่นยนต์ปรับตัวกับความแปรผันของตำแหน่งชิ้นงานและรองรับงาน Guidance/Alignment ในระบบอัตโนมัติ (Cognex, n.d.-a)
 
-\subsubsection{7.10.2 องค์ประกอบของระบบ Machine Vision}
+\subsubsection{องค์ประกอบของระบบ Machine Vision}
 
 \begin{enumerate}
     \item \textbf{Camera:} รับภาพ 2D หรือข้อมูลความลึก 3D
@@ -842,7 +832,7 @@ Cognex อธิบายว่า Vision-Guided Robotics ช่วยให้�
     \item \textbf{Mounting and Protection:} รักษาตำแหน่งกล้อง ลดการสั่น และป้องกันฝุ่นหรือแสงรบกวน
 \end{enumerate}
 
-\subsubsection{7.10.3 ประเภทของ Camera Vision}
+\subsubsection{ประเภทของ Camera Vision}
 
 \begin{table}[htbp]
     \centering
@@ -864,7 +854,7 @@ Cognex อธิบายว่า Vision-Guided Robotics ช่วยให้�
 ค่า Resolution และ Accuracy ต้องอ้างอิงรุ่นกล้อง เลนส์ Working Distance Field of View และสภาพแสง ไม่ควรสรุปจากประเภทกล้องเพียงอย่างเดียว ระบบ 3D Machine Vision ของผู้ผลิตสามารถสร้างแผนที่สามมิติแบบ Real-time เพื่อใช้กับ Guidance และการตรวจวัด แต่สมรรถนะต้องประเมินใน Application จริง (Cognex, n.d.-b)
 \end{quote}
 
-\subsubsection{7.10.4 ความละเอียดเชิงพื้นที่}
+\subsubsection{ความละเอียดเชิงพื้นที่}
 
 หากกล้องมีความละเอียดแนวนอน $N_x$ pixel และ Field of View แนวนอน $FOV_x$ mm ความละเอียดเชิงพื้นที่โดยประมาณคือ
 
@@ -884,7 +874,7 @@ r_x=\frac{600}{2448}=0.245\ \text{mm/pixel}
 
 หากต้องตรวจความคลาดเคลื่อน 0.20 mm การใช้ระบบนี้อาจมี Margin ไม่เพียงพอ เพราะคุณลักษณะสำคัญมีขนาดต่ำกว่าหนึ่งพิกเซลโดยประมาณ ควรลด Field of View เพิ่มความละเอียด หรือใช้ Optical Setup ที่เหมาะสม และทดสอบ Measurement System Capability
 
-\subsubsection{7.10.5 Robot Vision Workflow}
+\subsubsection{Robot Vision Workflow}
 
 \paragraph{ขั้นที่ 1 Camera Calibration}
 
@@ -942,7 +932,7 @@ Hand–Eye Calibration มีเป้าหมายสร้างความ
 
 ส่ง Pose และสถานะคุณภาพ เช่น Score, Pass/Fail หรือ Confidence ไปยัง Robot Controller จากนั้นตรวจสอบว่า Pose อยู่ใน Workspace ไม่ชน Fixture และอยู่ในขอบเขตที่อนุญาตก่อนเคลื่อนที่
 
-\subsubsection{7.10.6 Sources of Error}
+\subsubsection{Sources of Error}
 
 \begin{itemize}
     \item Lens Distortion และ Calibration Target ไม่ราบ
@@ -956,7 +946,7 @@ Hand–Eye Calibration มีเป้าหมายสร้างความ
     \item Delay ระหว่างการถ่ายภาพกับการหยิบชิ้นงานบนสายพาน
 \end{itemize}
 
-\subsubsection{7.10.7 ตัวอย่างเพิ่มเติมเพื่อการเรียนรู้: แปลงพิกัด 2D อย่างง่าย}
+\subsubsection{ตัวอย่างเพิ่มเติมเพื่อการเรียนรู้: แปลงพิกัด 2D อย่างง่าย}
 
 สมมติหลัง Calibration ระบบ Vision ให้สเกล $s=0.25$ mm/pixel จุดอ้างอิงภาพ $(u_0,v_0)=(800,600)$ ตรงกับจุดกำเนิดของ Work Object และแกนภาพตรงกับแกนงาน ชิ้นงานตรวจพบที่ $(u,v)=(920,520)$
 
@@ -990,7 +980,7 @@ y=-(v-v_0)s=-(520-600)(0.25)=20\ \text{mm}
 
 
 
-\subsection{7.11 Delta Robot และงาน Pick and Place ความเร็วสูง}
+\subsection{Delta Robot และงาน Pick and Place ความเร็วสูง}
 
 Delta Robot ใช้กลไกขนานที่ทำให้ชิ้นส่วนเคลื่อนที่มีมวลต่ำ จึงเร่งและหยุดได้เร็ว เหมาะกับงานหยิบชิ้นงานน้ำหนักเบาจากสายพาน เช่น อาหาร บรรจุภัณฑ์ และชิ้นส่วนขนาดเล็ก ระบบมักประกอบด้วยกล้องเหนือสายพาน Encoder และซอฟต์แวร์จัดคิวชิ้นงาน
 
@@ -1029,15 +1019,15 @@ ABB ระบุว่า Delta Robot ตระกูล IRB 360/365 รอง�
 
 
 
-\subsection{7.12 ระบบสายพานลำเลียงและ Conveyor Tracking}
+\subsection{ระบบสายพานลำเลียงและ Conveyor Tracking}
 
-\subsubsection{7.12.1 หลักการพื้นฐาน}
+\subsubsection{หลักการพื้นฐาน}
 
 Conveyor Tracking ทำให้หุ่นยนต์เคลื่อนที่สัมพันธ์กับชิ้นงานที่ยังอยู่บนสายพาน โดยอาศัยการวัดการเคลื่อนที่ของสายพานและการชดเชยตำแหน่งเป้าหมายแบบต่อเนื่อง ระบบแบบทั่วไปใช้ Encoder ติดกับเพลาหรือลูกกลิ้งที่สัมพันธ์กับการเคลื่อนที่จริงของสายพาน
 
 ABB และ FANUC มีระบบ Conveyor/Line Tracking สำหรับประสานการเคลื่อนที่ของหุ่นยนต์กับสายพาน และสามารถทำงานร่วมกับ Vision ในงาน Pick and Place (ABB, n.d.-e; FANUC America, n.d.-b)
 
-\subsubsection{7.12.2 การแปลง Encoder Count เป็นระยะทาง}
+\subsubsection{การแปลง Encoder Count เป็นระยะทาง}
 
 หาก Encoder ให้ $N_{rev}$ count ต่อรอบ และลูกกลิ้งมีเส้นผ่านศูนย์กลาง $D$ mm ระยะทางต่อ Count แบบอุดมคติคือ
 
@@ -1063,7 +1053,7 @@ x_c(t)=x_{c0}+[C(t)-C_0]k
 
 หากมี Gear Ratio, Quadrature Multiplication หรือ Pulley Ratio ต้องรวมใน $N_{rev}$ เทียบเท่าหรือใช้ Calibration Factor ที่วัดจากระยะจริง
 
-\subsubsection{7.12.3 การชดเชยตำแหน่งชิ้นงาน}
+\subsubsection{การชดเชยตำแหน่งชิ้นงาน}
 
 ถ้า Vision ตรวจพบชิ้นงานที่ตำแหน่ง $x_{p0}$ เมื่อ Encoder มีค่า $C_d$ และหุ่นยนต์เริ่มหยิบเมื่อ Encoder เป็น $C_p$
 
@@ -1073,7 +1063,7 @@ x_p=x_{p0}+(C_p-C_d)k
 
 สมการหมายถึงตำแหน่งชิ้นงานใหม่เท่ากับตำแหน่งที่ตรวจพบ บวกการเคลื่อนที่ของสายพานระหว่างการตรวจและการหยิบ
 
-\subsubsection{7.12.4 ตัวอย่างเพิ่มเติมเพื่อการเรียนรู้: Encoder Tracking}
+\subsubsection{ตัวอย่างเพิ่มเติมเพื่อการเรียนรู้: Encoder Tracking}
 
 Encoder เทียบเท่า 4096 count/rev ติดกับลูกกลิ้งเส้นผ่านศูนย์กลาง 100 mm
 
@@ -1093,7 +1083,7 @@ x_p=250+115.1=365.1\ \text{mm}
 
 ดังนั้นตำแหน่งตามแนวสายพานที่ต้องชดเชยคือประมาณ 365.1 mm ภายใต้สมมติฐานว่าสายพานไม่ลื่นและทิศทาง Count ถูกต้อง
 
-\subsubsection{7.12.5 ความเร็วสายพาน}
+\subsubsection{ความเร็วสายพาน}
 
 หากวัดจำนวน Count เปลี่ยนแปลง $\Delta C$ ในช่วงเวลา $\Delta t$
 
@@ -1103,7 +1093,7 @@ v_c=\frac{\Delta C\,k}{\Delta t}
 
 ความเร็วที่ไม่คงที่อาจทำให้การพยากรณ์ตำแหน่งจากเวลาล้วนผิดพลาด ระบบที่ Tracking จาก Encoder จึงปรับตำแหน่งตามการเคลื่อนที่จริงได้ดีกว่าการใช้ Timer เพียงอย่างเดียว
 
-\subsubsection{7.12.6 แหล่งความคลาดเคลื่อน}
+\subsubsection{แหล่งความคลาดเคลื่อน}
 
 \begin{itemize}
     \item สายพานลื่นบนลูกกลิ้ง
@@ -1116,7 +1106,7 @@ v_c=\frac{\Delta C\,k}{\Delta t}
     \item สายพานสั่นหรือเอียง
 \end{itemize}
 
-\subsubsection{7.12.7 การตรวจสอบเชิงทดลอง}
+\subsubsection{การตรวจสอบเชิงทดลอง}
 
 \begin{enumerate}
     \item ทำเครื่องหมายบนสายพาน
@@ -1147,9 +1137,9 @@ v_c=\frac{\Delta C\,k}{\Delta t}
 \end{figure}
 
 
-\subsection{7.13 การบูรณาการระบบควบคุมและลำดับการทำงาน}
+\subsection{การบูรณาการระบบควบคุมและลำดับการทำงาน}
 
-\subsubsection{7.13.1 สถาปัตยกรรมการควบคุมระดับ Cell}
+\subsubsection{สถาปัตยกรรมการควบคุมระดับ Cell}
 
 Robot Cell โดยทั่วไปมีตัวควบคุมหลายชนิด แต่ละตัวมีหน้าที่แตกต่างกัน
 
@@ -1172,7 +1162,7 @@ Robot Cell โดยทั่วไปมีตัวควบคุมหลา
 
 หลักการสำคัญคือกำหนด \textbf{เจ้าของสถานะ (State Ownership)} ให้ชัดเจน เช่น PLC เป็นผู้ตัดสินว่า Cell พร้อมเริ่มรอบหรือไม่ แต่ Robot Controller เป็นผู้ยืนยันว่า Robot อยู่ Home และไม่มี Fault หากหลายตัวควบคุมเขียนสัญญาณเดียวกันจะทำให้วิเคราะห์ปัญหาได้ยาก
 
-\subsubsection{7.13.2 Handshake ที่ตรวจสอบได้}
+\subsubsection{Handshake ที่ตรวจสอบได้}
 
 ตัวอย่างสัญญาณเริ่มงานระหว่าง PLC กับ Robot
 
@@ -1211,7 +1201,7 @@ Robot Cell โดยทั่วไปมีตัวควบคุมหลา
 
 ลำดับสัญญาณควรออกแบบแบบ Request–Acknowledge และมี Timeout เช่น PLC ยก \texttt{START\_REQ} แล้ว Robot ต้องยก \texttt{ROBOT\_BUSY} ภายในเวลาที่กำหนด มิฉะนั้นแจ้ง Alarm “Robot Start Timeout” แทนการค้างโดยไม่ทราบสาเหตุ
 
-\subsubsection{7.13.3 State Machine ของ Robot Cell}
+\subsubsection{State Machine ของ Robot Cell}
 
 ตัวอย่างสถานะ
 
@@ -1223,7 +1213,7 @@ STOPPED -> READY -> STARTING -> RUNNING -> COMPLETE -> READY
 
 สถานะ \textbf{FAULT} และ \textbf{SAFETY\_STOP} ควรแยกกัน เพราะสาเหตุ วิธี Reset และเงื่อนไขกลับสู่การผลิตต่างกัน การกด Reset ไม่ควรทำให้ระบบเริ่มเคลื่อนที่ทันทีโดยไม่มีคำสั่งเริ่มใหม่
 
-\subsubsection{7.13.4 Interlock ตัวอย่าง}
+\subsubsection{Interlock ตัวอย่าง}
 
 หุ่นยนต์อนุญาตให้เข้าหยิบชิ้นงานเมื่อ
 
@@ -1239,7 +1229,7 @@ Permit_{place}=SafetyOK\land DestinationEmpty\land FixtureReady\land GripOK
 
 ตรรกะเชิงบูลีนช่วยให้ผู้เรียนมองเห็นเงื่อนไขครบถ้วน แต่ระบบจริงต้องพิจารณาคุณสมบัติ Fail-safe และระดับความปลอดภัยของอุปกรณ์ ไม่ควรใช้ PLC ทั่วไปแทน Safety Controller สำหรับฟังก์ชันที่เกี่ยวกับการลดความเสี่ยงโดยตรง
 
-\subsubsection{7.13.5 Alarm และ Recovery}
+\subsubsection{Alarm และ Recovery}
 
 Alarm ที่ดีควรระบุ
 
@@ -1256,9 +1246,9 @@ Alarm ที่ดีควรระบุ
 
 
 
-\subsection{7.14 การวิเคราะห์ความเป็นไปได้ในการใช้หุ่นยนต์}
+\subsection{การวิเคราะห์ความเป็นไปได้ในการใช้หุ่นยนต์}
 
-\subsubsection{7.14.1 งานแบบใดเหมาะกับหุ่นยนต์}
+\subsubsection{งานแบบใดเหมาะกับหุ่นยนต์}
 
 งานที่มีแนวโน้มเหมาะสม ได้แก่
 
@@ -1282,7 +1272,7 @@ Alarm ที่ดีควรระบุ
     \item กระบวนการต้นน้ำและปลายน้ำไม่เสถียร ทำให้หุ่นยนต์รอชิ้นงานเป็นส่วนใหญ่
 \end{itemize}
 
-\subsubsection{7.14.2 ตารางประเมินเชิงคุณภาพ}
+\subsubsection{ตารางประเมินเชิงคุณภาพ}
 
 ให้คะแนนแต่ละหัวข้อ 1–5
 
@@ -1306,7 +1296,7 @@ Alarm ที่ดีควรระบุ
 
 คะแนนรวมใช้คัดกรองเบื้องต้นเท่านั้น ต้องยืนยันด้วยการทดลอง กระบวนการจำลอง และการวิเคราะห์ทางเศรษฐศาสตร์
 
-\subsubsection{7.14.3 การเลือกแนวทางอัตโนมัติ}
+\subsubsection{การเลือกแนวทางอัตโนมัติ}
 
 ไม่จำเป็นต้องเลือกระหว่าง “ใช้คนทั้งหมด” กับ “ใช้หุ่นยนต์ทั้งหมด” เสมอไป แนวทางอาจเป็น
 
@@ -1322,9 +1312,9 @@ Alarm ที่ดีควรระบุ
 
 
 
-\subsection{7.15 การคำนวณประสิทธิภาพและผลตอบแทนการลงทุน}
+\subsection{การคำนวณประสิทธิภาพและผลตอบแทนการลงทุน}
 
-\subsubsection{7.15.1 ต้นทุนที่ต้องพิจารณา}
+\subsubsection{ต้นทุนที่ต้องพิจารณา}
 
 \textbf{เงินลงทุนเริ่มต้น (Capital Expenditure: CAPEX)}
 
@@ -1352,7 +1342,7 @@ Alarm ที่ดีควรระบุ
     \item แรงงานผู้ควบคุมและช่างเทคนิค
 \end{itemize}
 
-\subsubsection{7.15.2 ผลประโยชน์ที่อาจเกิดขึ้น}
+\subsubsection{ผลประโยชน์ที่อาจเกิดขึ้น}
 
 \begin{itemize}
     \item ลดชั่วโมงแรงงานโดยตรงหรือย้ายคนไปงานที่มีคุณค่าสูงขึ้น
@@ -1365,7 +1355,7 @@ Alarm ที่ดีควรระบุ
 
 ผลประโยชน์ด้านความปลอดภัยและคุณภาพบางส่วนประเมินเป็นเงินได้ยาก ควรแยกแสดงจากผลประหยัดที่ยืนยันได้ ไม่ควรบวกรวมโดยไม่มีหลักฐาน
 
-\subsubsection{7.15.3 ผลประหยัดสุทธิต่อปี}
+\subsubsection{ผลประหยัดสุทธิต่อปี}
 
 \[
 S_{net}=S_{labor}+S_{quality}+S_{throughput}+S_{safety}-C_{operation}
@@ -1373,7 +1363,7 @@ S_{net}=S_{labor}+S_{quality}+S_{throughput}+S_{safety}-C_{operation}
 
 โดยทุกพจน์มีหน่วยเงินต่อปี และต้องระบุสมมติฐานของแต่ละรายการ
 
-\subsubsection{7.15.4 Return on Investment}
+\subsubsection{Return on Investment}
 
 \[
 ROI=\frac{S_{net}}{I_0}\times100\%
@@ -1381,7 +1371,7 @@ ROI=\frac{S_{net}}{I_0}\times100\%
 
 เมื่อ $I_0$ คือเงินลงทุนเริ่มต้น สมการนี้เป็น ROI ต่อปีแบบง่าย ไม่คำนึงถึงมูลค่าเงินตามเวลา
 
-\subsubsection{7.15.5 ระยะเวลาคืนทุน}
+\subsubsection{ระยะเวลาคืนทุน}
 
 \[
 Payback\ Period=\frac{I_0}{S_{net}}
@@ -1389,7 +1379,7 @@ Payback\ Period=\frac{I_0}{S_{net}}
 
 มีหน่วยเป็นปี หากผลประหยัดสุทธิเปลี่ยนตามปี ต้องใช้กระแสเงินสดสะสมแทนการหารอย่างง่าย
 
-\subsubsection{7.15.6 มูลค่าปัจจุบันสุทธิแบบเบื้องต้น}
+\subsubsection{มูลค่าปัจจุบันสุทธิแบบเบื้องต้น}
 
 สำหรับโครงการอายุ $n$ ปี อัตราคิดลด $r$ และกระแสเงินสดสุทธิปีที่ $t$ เท่ากับ $CF_t$
 
@@ -1399,7 +1389,7 @@ NPV=-I_0+\sum_{t=1}^{n}\frac{CF_t}{(1+r)^t}
 
 หากมีมูลค่าซากให้รวมในกระแสเงินสดปีสุดท้าย NPV ช่วยเปรียบเทียบโครงการที่มีช่วงเวลาและกระแสเงินสดต่างกัน แต่ความแม่นยำขึ้นกับสมมติฐานการผลิต ต้นทุน และอัตราคิดลด
 
-\subsubsection{7.15.7 ตัวอย่างเพิ่มเติมเพื่อการเรียนรู้: ROI และ Payback}
+\subsubsection{ตัวอย่างเพิ่มเติมเพื่อการเรียนรู้: ROI และ Payback}
 
 โรงงานพิจารณา Robot Cell มีเงินลงทุนรวม 3,200,000 บาท คาดว่าจะให้ผลประโยชน์ต่อปีดังนี้
 
@@ -1435,7 +1425,7 @@ Payback=\frac{3{,}200{,}000}{1{,}260{,}000}=2.54\ \text{ปี}
 \textbf{4. การแปลความหมาย}\\
 ภายใต้สมมติฐานเดิม โครงการให้ ROI แบบง่ายประมาณ 39.4\% ต่อปีและคืนทุนประมาณ 2.5 ปี แต่ก่อนตัดสินใจต้องทดสอบความไวต่อยอดผลิต Downtime ค่าอะไหล่ และ Ramp-up เพราะหากกำลังการผลิตต่ำกว่าคาด ผลประโยชน์จะลดลง
 
-\subsubsection{7.15.8 Sensitivity Analysis}
+\subsubsection{Sensitivity Analysis}
 
 \begin{table}[htbp]
     \centering
@@ -1454,53 +1444,53 @@ Payback=\frac{3{,}200{,}000}{1{,}260{,}000}=2.54\ \text{ปี}
 Sensitivity Analysis ช่วยให้ผู้ตัดสินใจเห็นว่าผลลัพธ์ไวต่อสมมติฐานใดมากที่สุด
 
 
-\subsection{7.16 ความเข้าใจผิดที่พบบ่อย}
+\subsection{ความเข้าใจผิดที่พบบ่อย}
 
-\subsubsection{7.16.1 “Payload ผ่าน แปลว่าเลือกหุ่นยนต์ได้แน่นอน”}
+\subsubsection{“Payload ผ่าน แปลว่าเลือกหุ่นยนต์ได้แน่นอน”}
 
 \textbf{แนวคิดที่ถูกต้อง:} ต้องตรวจมวลรวม จุดศูนย์ถ่วง โมเมนต์ ความเฉื่อย ทิศทางติดตั้ง ความเร่ง และ Load Diagram ของผู้ผลิตด้วย Tool ที่ยาวหรือเยื้องศูนย์อาจเกินพิกัดข้อมือได้
 
-\subsubsection{7.16.2 “Reach สูงสุดครอบคลุมจุดงาน จึงไม่มีปัญหา”}
+\subsubsection{“Reach สูงสุดครอบคลุมจุดงาน จึงไม่มีปัญหา”}
 
 \textbf{แนวคิดที่ถูกต้อง:} จุดงานใกล้ขอบ Workspace อาจไม่สามารถวาง Orientation ที่ต้องการ หรือเกิด Singularity และมี Clearance ต่ำ ต้องตรวจทั้ง Pose และ Path ใน Simulation
 
-\subsubsection{7.16.3 “Accuracy และ Repeatability เป็นค่าเดียวกัน”}
+\subsubsection{“Accuracy และ Repeatability เป็นค่าเดียวกัน”}
 
 \textbf{แนวคิดที่ถูกต้อง:} Repeatability คือความสามารถในการกลับตำแหน่งเดิมซ้ำ ส่วน Accuracy คือความใกล้เคียงกับตำแหน่งจริงที่กำหนด ระบบ Pick and Place แบบสอนตำแหน่งอาจต้องการ Repeatability สูง ขณะที่ Vision Guidance และ Offline Programming อาจต้องพิจารณา Accuracy กับ Calibration เพิ่มเติม
 
-\subsubsection{7.16.4 “เพิ่มความเร็ว Robot แล้ว Cycle Time จะลดตามสัดส่วน”}
+\subsubsection{“เพิ่มความเร็ว Robot แล้ว Cycle Time จะลดตามสัดส่วน”}
 
 \textbf{แนวคิดที่ถูกต้อง:} Cycle Time อาจถูกจำกัดด้วยกระบวนการ Gripper, Sensor, Fixture, Vision, PLC หรือ Conveyor การเพิ่มความเร็วมากอาจเพิ่มการสั่น ลดคุณภาพ และเพิ่มระยะหยุด
 
-\subsubsection{7.16.5 “Machine Vision แก้ปัญหา Fixture ได้ทั้งหมด”}
+\subsubsection{“Machine Vision แก้ปัญหา Fixture ได้ทั้งหมด”}
 
 \textbf{แนวคิดที่ถูกต้อง:} Vision ช่วยชดเชยตำแหน่งและจำแนกชิ้นงาน แต่ไม่แก้ปัญหาการสั่น แสงไม่คงที่ ชิ้นงานซ้อนกัน หรือชิ้นงานที่จับไม่ได้ การลดความแปรปรวนทางกลยังสำคัญ
 
-\subsubsection{7.16.6 “กล้องมีจำนวน Megapixel สูงจึงแม่นยำกว่าเสมอ”}
+\subsubsection{“กล้องมีจำนวน Megapixel สูงจึงแม่นยำกว่าเสมอ”}
 
 \textbf{แนวคิดที่ถูกต้อง:} ความแม่นยำขึ้นกับ Field of View, Lens, Calibration, Lighting, Contrast, Mounting และ Algorithm จำนวน Pixel สูงอาจไม่ช่วยหากภาพเบลอหรือ Optical Setup ไม่เหมาะสม
 
-\subsubsection{7.16.7 “Emergency Stop คือมาตรการความปลอดภัยหลักที่เพียงพอ”}
+\subsubsection{“Emergency Stop คือมาตรการความปลอดภัยหลักที่เพียงพอ”}
 
 \textbf{แนวคิดที่ถูกต้อง:} E-Stop เป็นมาตรการตอบสนองเหตุฉุกเฉิน ไม่ได้แทนการป้องกันการเข้าถึงอันตราย การลดความเสี่ยงต้องเริ่มจากการออกแบบและใช้ Guarding, Interlock, Safe Function และขั้นตอนที่เหมาะสมตาม Risk Assessment
 
-\subsubsection{7.16.8 “Simulation ตรงกับระบบจริง 100\%”}
+\subsubsection{“Simulation ตรงกับระบบจริง 100\%”}
 
 \textbf{แนวคิดที่ถูกต้อง:} Simulation มีประโยชน์ต่อ Reach, Collision, Layout และ Cycle Time แต่ผลจริงยังขึ้นกับความหน่วงของอุปกรณ์ I/O, Acceleration Setting, Fixture Tolerance, Cable, Process Delay และ Calibration ต้อง Validation หน้างาน
 
-\subsubsection{7.16.9 “ROI สูงหมายความว่าโครงการไม่มีความเสี่ยง”}
+\subsubsection{“ROI สูงหมายความว่าโครงการไม่มีความเสี่ยง”}
 
 \textbf{แนวคิดที่ถูกต้อง:} ROI แบบง่ายอาจละเลย Ramp-up, Downtime, อัตราคิดลด, อายุอุปกรณ์ และความไม่แน่นอนของยอดผลิต ควรทำ Sensitivity Analysis และวางแผน Maintenance/Spare Parts
 
-\subsubsection{7.16.10 “เมื่อ Robot Cell หยุด ให้ข้าม Interlock เพื่อเดินเครื่องเร็วขึ้น”}
+\subsubsection{“เมื่อ Robot Cell หยุด ให้ข้าม Interlock เพื่อเดินเครื่องเร็วขึ้น”}
 
 \textbf{แนวคิดที่ถูกต้อง:} การ Bypass โดยไม่มีกระบวนการควบคุมสร้างความเสี่ยงสูง การ Recovery ต้องมีขั้นตอนที่กำหนด ผู้มีอำนาจ และการตรวจสอบสาเหตุ ไม่ควรแก้โปรแกรมให้ละเว้นสัญญาณความปลอดภัยหรือ Process Confirmation
 
 
 
-\subsection{7.17 การประยุกต์ใช้ในงานจริงและกรณีศึกษา}
+\subsection{การประยุกต์ใช้ในงานจริงและกรณีศึกษา}
 
-\subsubsection{7.17.1 กรณีศึกษา A: Robot Cell ประกอบชิ้นส่วนพลาสติกสองชิ้น}
+\subsubsection{กรณีศึกษา A: Robot Cell ประกอบชิ้นส่วนพลาสติกสองชิ้น}
 
 \paragraph{ความต้องการ}
 
@@ -1543,7 +1533,7 @@ Sensitivity Analysis ช่วยให้ผู้ตัดสินใจเ�
     \item ทำ Run ต่อเนื่องและบันทึก Failure Mode
 \end{enumerate}
 
-\subsubsection{7.17.2 กรณีศึกษา B: Palletizing กล่องจากสายพาน}
+\subsubsection{กรณีศึกษา B: Palletizing กล่องจากสายพาน}
 
 \paragraph{ความต้องการ}
 
@@ -1576,7 +1566,7 @@ T_{allow}=\frac{60}{8}=7.5\ \text{s/กล่อง}
 
 Vacuum Gripper เหมาะเมื่อผิวกล่องเรียบและแข็งพอ แต่ต้องตรวจการรั่ว การยุบตัว และ Vacuum Switch หากกล่องพรุนหรือผิวไม่สม่ำเสมอ อาจใช้ Clamp Gripper หรือ Hybrid Gripper
 
-\subsubsection{7.17.3 กรณีศึกษา C: Vision-Guided Pick บนสายพาน}
+\subsubsection{กรณีศึกษา C: Vision-Guided Pick บนสายพาน}
 
 \paragraph{ความต้องการ}
 
@@ -1607,7 +1597,7 @@ Vacuum Gripper เหมาะเมื่อผิวกล่องเรี�
     \item ทดสอบกรณีชิ้นงานชิดกันและบางส่วนบังกัน
 \end{itemize}
 
-
+\newpage
 
 \subsection{7.18 กิจกรรมปฏิบัติการประจำบท}
 
