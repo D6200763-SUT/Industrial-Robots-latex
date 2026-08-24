@@ -8,7 +8,7 @@
 \end{tabularx}
 
 
-\subsection{1. แนวคิดสำคัญของบท}
+\subsection{แนวคิดสำคัญของบท}
 
 หุ่นยนต์อุตสาหกรรมจะสร้างคุณค่าให้กระบวนการผลิตได้ต่อเมื่อผู้ใช้งานสามารถกำหนดตำแหน่งและทิศทางของเครื่องมือ วางแผนเส้นทาง เขียนลำดับการทำงาน เชื่อมต่อสัญญาณกับอุปกรณ์ภายนอก และตรวจสอบความปลอดภัยได้อย่างเป็นระบบ การเขียนโปรแกรมหุ่นยนต์จึงไม่ใช่เพียงการบันทึกจุดแล้วสั่งให้เคลื่อนที่ แต่เป็นการประสานความรู้ด้านระบบพิกัด จลนศาสตร์ การควบคุมการเคลื่อนที่ ลอจิก โปรแกรม PLC อุปกรณ์จับยึด และข้อกำหนดด้านความปลอดภัย
 
@@ -26,9 +26,7 @@
     \item การควบคุมความเสี่ยงตามมาตรฐานความปลอดภัยของหุ่นยนต์และเครื่องจักร
 \end{enumerate}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
-
-\subsection{2. ความรู้พื้นฐานก่อนเรียน}
+\subsection{ความรู้พื้นฐานก่อนเรียน}
 
 ก่อนเรียนบทนี้ นักศึกษาควรมีความรู้หรือทักษะดังต่อไปนี้
 
@@ -45,9 +43,9 @@
 
 หากผู้เรียนยังไม่เคยใช้หุ่นยนต์จริง ควรเริ่มจากซอฟต์แวร์จำลองหรือโหมดฝึกอบรมของ Controller ก่อนเข้าสู่การ Jog และการทดสอบโปรแกรมบนหุ่นยนต์จริง
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+\newpage
 
-\subsection{3. คำสำคัญประจำบท}
+\subsection{คำสำคัญประจำบท}
 
 \begin{table}[htbp]
     \centering
@@ -85,9 +83,7 @@
     \end{tabularx}
 \end{table}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
-
-\subsection{4. ผลลัพธ์การเรียนรู้ประจำบท}
+\subsection{ผลลัพธ์การเรียนรู้ประจำบท}
 
 \begin{quote}
 เมื่อเรียนจบบทนี้ นักศึกษาสามารถ...
@@ -104,6 +100,9 @@
 \end{enumerate}
 
 \subsubsection{ตาราง 8.1 ความสอดคล้องระหว่างผลลัพธ์ เนื้อหา กิจกรรม และการประเมิน}
+
+
+\newpage
 
 \begin{table}[htbp]
     \centering
@@ -123,11 +122,9 @@
     \end{tabularx}
 \end{table}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+\subsection{แผนผังเนื้อหาของบท}
 
-\subsection{5. แผนผังเนื้อหาของบท}
-
-\begin{verbatim}
+\begin{center}
 ระบบพิกัดและ TCP
         |
 การ Jog และการสอนตำแหน่ง
@@ -145,13 +142,13 @@ Preventive Maintenance และ Calibration
 Troubleshooting และ Safe Recovery
         |
 Safeguarding, Risk Assessment และ LOTO
-\end{verbatim}
+\end{center}
 
 ลำดับดังกล่าวสะท้อนวงจรชีวิตของโปรแกรมหุ่นยนต์ ตั้งแต่การกำหนดกรอบอ้างอิง การสร้างเส้นทาง การทดสอบ การใช้งาน การบำรุงรักษา ไปจนถึงการกู้คืนระบบหลังเกิดความผิดปกติ
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+\newpage
 
-\subsection{6. บทนำ}
+\subsection{บทนำ}
 
 ในสายการผลิตสมัยใหม่ หุ่นยนต์อุตสาหกรรมมักทำงานร่วมกับ Conveyor, Vision System, PLC, Safety PLC, Gripper, Welding Power Source, Positioner และเครื่องจักรอื่น โปรแกรมหุ่นยนต์จึงต้องตอบคำถามสำคัญอย่างน้อย 5 ข้อ ได้แก่
 
@@ -165,19 +162,15 @@ Safeguarding, Risk Assessment และ LOTO
 
 ตัวอย่างเช่น งานหยิบชิ้นงานจาก Conveyor ไม่สามารถใช้เพียงคำสั่งเคลื่อนที่ไปยังจุด Pick ได้ โปรแกรมต้องตรวจว่ามีชิ้นงานจริง Gripper พร้อมทำงาน พื้นที่ปลายทางว่าง และระบบ Safety อยู่ในสถานะอนุญาต เมื่อตรวจครบแล้วจึงเคลื่อนที่ไปยังจุด Approach ลดความเร็วเข้าสู่จุด Pick สั่งจับ รอสัญญาณ Gripper Confirm ถอยออกตามแนวปลอดภัย และส่งสถานะ Complete ให้ PLC หากสัญญาณยืนยันไม่มาในเวลาที่กำหนด โปรแกรมต้องหยุดอย่างควบคุม แจ้ง Alarm และไม่เคลื่อนต่อโดยคาดเดาว่าจับชิ้นงานสำเร็จ
 
-แนวคิดสำคัญจึงอยู่ที่การทำให้ \textbf{ตำแหน่ง เส้นทาง ลอจิก การบำรุงรักษา และความปลอดภัย} เป็นระบบเดียวกัน ไม่ใช่ส่วนแยกจากกัน
+แนวคิดสำคัญจึงอยู่ที่การทำให้ \textbf{ตำแหน่ง เส้นทาง ลอจิก การบำรุงรักษา และความปลอดภัย} เป็นระบบเดียวกัน ไม่ใช่ส่วนแยกจากกัน                                                
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+\subsection{ระบบพิกัดในหุ่นยนต์อุตสาหกรรม}
 
-\subsection{7. เนื้อหาหลัก}
-
-\subsection{7.1 ระบบพิกัดในหุ่นยนต์อุตสาหกรรม}
-
-\subsubsection{7.1.1 เหตุผลที่ต้องมีหลายระบบพิกัด}
+\subsubsection{เหตุผลที่ต้องมีหลายระบบพิกัด}
 
 หุ่นยนต์ 6 แกนสามารถอธิบายท่าทางเดียวกันได้หลายรูปแบบ เช่น อธิบายด้วยมุม Joint ทั้งหก หรืออธิบายด้วยพิกัด $X,Y,Z$ และมุม Orientation ของ TCP เมื่อผู้ปฏิบัติงาน Jog หุ่นยนต์ สิ่งที่ต้องการควบคุมอาจเป็น “หมุนเฉพาะแกน 2” “เลื่อนไปทางแกน $Z$ ของฐาน” “เดินหัวเชื่อมไปข้างหน้าตามแกนของ Torch” หรือ “เลื่อนตามแนวขอบ Fixture” การมี Coordinate System หลายแบบทำให้คำสั่งสอดคล้องกับเจตนาของงาน
 
-\subsubsection{7.1.2 Joint Coordinate System}
+\subsubsection{Joint Coordinate System}
 
 Joint Coordinate System กำหนดสถานะของหุ่นยนต์ด้วยเวกเตอร์ค่าข้อต่อ
 
@@ -204,7 +197,7 @@ Joint Coordinate System กำหนดสถานะของหุ่นย�
 
 \textbf{ข้อควรระวัง:} การ Jog ใน Joint Coordinate ต้องมองทั้งแขน ไม่ใช่มองเฉพาะ TCP เพราะส่วน Elbow, Wrist หรือสาย Dress Pack อาจเข้าใกล้โครงสร้างอื่นก่อนที่ TCP จะถึงสิ่งกีดขวาง
 
-\subsubsection{7.1.3 World หรือ Base Coordinate System}
+\subsubsection{World หรือ Base Coordinate System}
 
 World/Base Coordinate System เป็นกรอบพิกัดคาร์ทีเซียนที่ผูกกับฐานหุ่นยนต์หรือกรอบหลักของเซลล์ ตำแหน่ง TCP เขียนได้เป็น
 
@@ -224,7 +217,7 @@ World/Base Coordinate System เป็นกรอบพิกัดคาร์
 
 \textbf{ข้อจำกัด:} หาก Fixture ถูกย้าย การแก้จุดทุกจุดใน World Frame อาจใช้เวลามาก จึงควรสร้าง User Frame ให้ผูกกับ Fixture
 
-\subsubsection{7.1.4 Tool Coordinate System และ Tool Center Point}
+\subsubsection{Tool Coordinate System และ Tool Center Point}
 
 Tool Coordinate System ผูกกับ End Effector จุดกำเนิดมักกำหนดที่ \textbf{Tool Center Point (TCP)} เช่น ปลายลวดเชื่อม จุดกึ่งกลางหัวพ่น หรือจุดกึ่งกลางระหว่างนิ้ว Gripper
 
@@ -248,7 +241,7 @@ Tool Coordinate System ผูกกับ End Effector จุดกำเนิ�
     \item \textbf{External measurement:} ใช้ Jig, Probe, Laser Tracker หรือ Metrology System ในงานที่ต้องการความแม่นยำสูง
 \end{enumerate}
 
-\subsubsection{7.1.5 User Coordinate System หรือ Work Object}
+\subsubsection{User Coordinate System หรือ Work Object}
 
 User Frame หรือ Work Object เป็นกรอบพิกัดที่ผูกกับ Fixture, Pallet, Table หรือชิ้นงาน โปรแกรมที่สร้างจุดสัมพันธ์กับกรอบนี้สามารถย้ายตาม Fixture ได้โดยแก้ค่ากรอบเพียงชุดเดียว แทนการแก้ทุกจุด
 
@@ -270,7 +263,7 @@ User Frame หรือ Work Object เป็นกรอบพิกัดท�
 
 หากถาดถูกเลื่อนหรือหมุน สามารถสอน User Frame ใหม่โดยไม่ต้องแก้สูตร Offset ของทุกช่อง
 
-\subsubsection{7.1.6 การแปลงกรอบอ้างอิง}
+\subsubsection{การแปลงกรอบอ้างอิง}
 
 ความสัมพันธ์ระหว่างกรอบพิกัดนิยมเขียนด้วย Homogeneous Transformation Matrix ขนาด $4\times4$
 
@@ -372,10 +365,10 @@ User Frame หรือ Work Object เป็นกรอบพิกัดท�
     \caption{ระบบพิกัด World, Tool และ User บนหุ่นยนต์ 6 แกน}
 \end{figure}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
-\subsection{7.2 วิธีการสอนตำแหน่งหุ่นยนต์}
 
-\subsubsection{7.2.1 Online Teaching ด้วย Teach Pendant}
+\subsection{วิธีการสอนตำแหน่งหุ่นยนต์}
+
+\subsubsection{Online Teaching ด้วย Teach Pendant}
 
 Online Teaching คือการใช้ Controller และหุ่นยนต์จริงเพื่อสอนจุดหรือปรับโปรแกรมโดยตรง วิธีนี้ให้ข้อมูลจากระบบจริง เช่น Reachability, Joint Limit, Cable Routing, Fixture Clearance และพฤติกรรมของ End Effector แต่ทำให้เซลล์ไม่สามารถผลิตได้ในช่วงที่สอนและมีความเสี่ยงจากการเคลื่อนที่จริง
 
@@ -408,7 +401,7 @@ Online Teaching คือการใช้ Controller และหุ่นย�
 
 การใช้จุดเดียวทั้งเข้าและออกอาจเหมาะกับงานง่าย แต่ในงานที่มี Fixture ลึกหรือมีชิ้นส่วนยื่น การแยกจุดช่วยให้ Recovery และการวิเคราะห์ Collision ทำได้ชัดเจนกว่า
 
-\subsubsection{7.2.2 Lead-through Programming}
+\subsubsection{Lead-through Programming}
 
 Lead-through หรือ Hand Guiding คือการนำแขนหุ่นยนต์ด้วยมือในระบบที่ได้รับการออกแบบให้รองรับ เช่น Collaborative Robot หรือหุ่นยนต์ที่มีโหมด Hand Guiding และแรงชดเชยน้ำหนักจากผู้ผลิต การใช้งานทั่วไปประกอบด้วย
 
@@ -431,7 +424,7 @@ Lead-through หรือ Hand Guiding คือการนำแขนหุ�
     \item ต้องประเมิน Pinch Point, Tool Hazard และแรงจาก Payload แม้เป็น Cobot
 \end{itemize}
 
-\subsubsection{7.2.3 Offline Programming}
+\subsubsection{Offline Programming}
 
 Offline Programming (OLP) คือการสร้างโปรแกรม เส้นทาง และ Cell Layout บนคอมพิวเตอร์ โดยใช้ Robot Model และ Virtual Controller เมื่อเหมาะสม ตัวอย่างซอฟต์แวร์จากผู้ผลิต ได้แก่ FANUC ROBOGUIDE, ABB RobotStudio, KUKA.Sim หรือแพลตฟอร์มรุ่นใหม่ของ KUKA, Yaskawa MotoSim, Mitsubishi RT ToolBox3 และ Universal Robots URSim
 
@@ -486,7 +479,7 @@ Offline Programming (OLP) คือการสร้างโปรแกรม
     \end{tabularx}
 \end{table}
 
-\subsubsection{7.2.4 การกำหนดคุณภาพของจุดสอน}
+\subsubsection{การกำหนดคุณภาพของจุดสอน}
 
 จุดที่ดีไม่ได้หมายถึงเพียง TCP อยู่ตำแหน่งถูกต้อง แต่ต้องมีองค์ประกอบต่อไปนี้
 
@@ -517,11 +510,11 @@ Offline Programming (OLP) คือการสร้างโปรแกรม
 [ ] กำหนด Motion Type และ Termination เหมาะสม
 \end{verbatim}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
 
-\subsection{7.3 Motion Commands และการวางแผนเส้นทาง}
 
-\subsubsection{7.3.1 ความแตกต่างระหว่าง Path และ Trajectory}
+\subsection{Motion Commands และการวางแผนเส้นทาง}
+
+\subsubsection{ความแตกต่างระหว่าง Path และ Trajectory}
 
 \begin{itemize}
     \item \textbf{Path} คือรูปร่างทางเรขาคณิตที่ TCP หรือ Joint เคลื่อนผ่าน โดยยังไม่ระบุเวลา
@@ -578,7 +571,7 @@ URScript: movej(q_target, a=1.2, v=0.8)
 รูปแบบคำสั่งเป็นตัวอย่างเชิงการเรียนรู้ ต้องตรวจ Syntax, Unit และ Option จากคู่มือ Controller รุ่นที่ใช้งาน
 \end{quote}
 
-\subsubsection{7.3.3 Linear Motion: LIN}
+\subsubsection{Linear Motion: LIN}
 
 Linear Motion ควบคุมให้ TCP เคลื่อนตามเส้นตรงจากตำแหน่งเริ่ม $\mathbf{p}_0$ ไปยังตำแหน่งปลาย $\mathbf{p}_f$
 
@@ -613,7 +606,7 @@ Yaskawa: MOVL P002 V=500.0
 URScript: movel(p_target, a=0.5, v=0.25)
 \end{verbatim}
 
-\subsubsection{7.3.4 Circular Motion: CIRC/ARC}
+\subsubsection{Circular Motion: CIRC/ARC}
 
 การเคลื่อนที่เป็นวงโค้งต้องมีอย่างน้อยจุดเริ่ม จุดผ่าน และจุดปลาย เพื่อกำหนดระนาบและส่วนโค้ง
 
@@ -635,7 +628,7 @@ URScript: movec(p_via, p_to, a=0.5, v=0.2)
     \item หาก Arc ใหญ่หรือซับซ้อน ควรแบ่งเป็นหลายส่วนและตรวจ Continuity
 \end{itemize}
 
-\subsubsection{7.3.5 Blending, Zone และ CNT}
+\subsubsection{Blending, Zone และ CNT}
 
 หากกำหนดจุดเป็น Fine/Exact Stop หุ่นยนต์จะลดความเร็วจนเข้าเกณฑ์ตำแหน่งก่อนเริ่ม Motion ถัดไป การหยุดทุกจุดเพิ่ม Cycle Time และทำให้ความเร่งเปลี่ยนบ่อย ในทางกลับกัน Blending ทำให้ Controller เริ่มเบี่ยงจากจุดเดิมเพื่อเชื่อมกับเส้นทางถัดไปอย่างต่อเนื่อง
 
@@ -680,7 +673,7 @@ URScript: movec(p_via, p_to, a=0.5, v=0.2)
 
 \textbf{การแปลความหมาย:} การปรับ Motion Termination ที่จุดไม่สำคัญสามารถเพิ่มกำลังการผลิตได้มาก แต่ต้องยืนยันว่า Path ใหม่ไม่เข้าใกล้คน อุปกรณ์ หรือชิ้นงานเกินเกณฑ์
 
-\subsubsection{7.3.6 ปัจจัยที่มีผลต่อ Path Planning}
+\subsubsection{ปัจจัยที่มีผลต่อ Path Planning}
 
 \begin{enumerate}
     \item \textbf{Reachability:} จุดต้องอยู่ใน Working Envelope และไม่เกิน Joint Limit
@@ -750,11 +743,11 @@ URScript: movec(p_via, p_to, a=0.5, v=0.2)
     \caption{ผลของ FINE และ CNT/Zone Blending}
 \end{figure}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
 
-\subsection{7.4 โครงสร้างโปรแกรมหุ่นยนต์เบื้องต้น}
 
-\subsubsection{7.4.1 องค์ประกอบของโปรแกรมที่อ่านและบำรุงรักษาได้}
+\subsection{โครงสร้างโปรแกรมหุ่นยนต์เบื้องต้น}
+
+\subsubsection{องค์ประกอบของโปรแกรมที่อ่านและบำรุงรักษาได้}
 
 โปรแกรมหุ่นยนต์ที่ดีควรแยกองค์ประกอบต่อไปนี้
 
@@ -769,7 +762,7 @@ URScript: movec(p_via, p_to, a=0.5, v=0.2)
     \item \textbf{Comments and Revision:} ผู้แก้ไข วันที่ เหตุผล และ Version
 \end{enumerate}
 
-\subsubsection{7.4.2 ตัวอย่างโปรแกรม Pick and Place แบบ FANUC TP-like}
+\subsubsection{ตัวอย่างโปรแกรม Pick and Place แบบ FANUC TP-like}
 
 \begin{verbatim}
 1:  !--- PICK AND PLACE PROGRAM --- ;
@@ -814,7 +807,7 @@ URScript: movec(p_via, p_to, a=0.5, v=0.2)
 โค้ดนี้เป็นตัวอย่างเพื่ออธิบายโครงสร้าง ไม่ใช่ไฟล์ที่รับรองว่าสามารถโหลดได้กับ Controller ทุก Version ชื่อคำสั่ง Timeout และรูปแบบ Label ต้องปรับตามคู่มือจริง
 \end{quote}
 
-\subsubsection{7.4.3 ลำดับ Handshake กับ PLC}
+\subsubsection{ลำดับ Handshake กับ PLC}
 
 การเชื่อมต่อหุ่นยนต์กับ PLC ควรใช้ State หรือ Handshake ที่ตรวจสอบได้ ไม่ควรใช้ Pulse สั้นโดยไม่มีการยืนยัน ตัวอย่างสัญญาณ ได้แก่
 
@@ -862,7 +855,7 @@ Robot: CYCLE_COMPLETE = OFF, ROBOT_BUSY = OFF
 
 การออกแบบต้องกำหนดพฤติกรรมเมื่อสัญญาณค้าง สัญญาณหายระหว่าง Cycle หรือ Controller Restart เพื่อป้องกันการเริ่มซ้ำโดยไม่ตั้งใจ
 
-\subsubsection{7.4.4 โครงสร้างควบคุมการไหล}
+\subsubsection{โครงสร้างควบคุมการไหล}
 
 \begin{verbatim}
 !--- IF CONDITION ---
@@ -891,7 +884,7 @@ WAIT DI[2:CLAMP_OK] = ON TIMEOUT LBL[100]
     \item การ Restart ต้องรู้ว่า Cycle อยู่ State ใด ไม่ควรกลับไปเริ่มต้นโดยอัตโนมัติทุกกรณี
 \end{itemize}
 
-\subsubsection{7.4.5 ตัวอย่างโปรแกรมวางชิ้นงาน 2 × 5 ช่องแบบ Pseudocode}
+\subsubsection{ตัวอย่างโปรแกรมวางชิ้นงาน 2 × 5 ช่องแบบ Pseudocode}
 
 \begin{verbatim}
 SET ROWS = 2
@@ -924,7 +917,7 @@ ENDFOR
 
 จุดเด่นของแนวทางนี้คือใช้จุดต้นเพียงจุดเดียวร่วมกับ Offset จึงลดจำนวน Point และทำให้ปรับ Pitch ได้ง่าย แต่ต้องตรวจว่า Offset ทุกจุดอยู่ใน Reach, ไม่เกิด Singularity และไม่ชนขอบถาด
 
-\subsubsection{7.4.6 การจัดการ Timeout และ Fault}
+\subsubsection{การจัดการ Timeout และ Fault}
 
 การใช้ \texttt{WAIT} โดยไม่มี Timeout อาจทำให้โปรแกรมค้างโดยไม่ทราบสาเหตุ แนวทางที่ดีกว่าคือ
 
@@ -939,7 +932,7 @@ ENDFOR
     \item บันทึกเหตุการณ์เพื่อวิเคราะห์ซ้ำ
 \end{enumerate}
 
-\subsubsection{7.4.7 การตรวจสอบโปรแกรมก่อนใช้งานจริง}
+\subsubsection{การตรวจสอบโปรแกรมก่อนใช้งานจริง}
 
 \textbf{ระดับที่ 1: Static Review}
 
@@ -979,10 +972,10 @@ ENDFOR
     \item บันทึก Version และ Backup หลังอนุมัติ
 \end{itemize}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
-\subsection{7.5 การบำรุงรักษาหุ่นยนต์อุตสาหกรรม}
 
-\subsubsection{7.5.1 เป้าหมายของการบำรุงรักษา}
+\subsection{การบำรุงรักษาหุ่นยนต์อุตสาหกรรม}
+
+\subsubsection{เป้าหมายของการบำรุงรักษา}
 
 การบำรุงรักษาไม่ได้มีเป้าหมายเพียง “ซ่อมให้กลับมาทำงาน” แต่ต้องรักษาคุณลักษณะสำคัญของระบบ ได้แก่
 
@@ -1007,7 +1000,7 @@ ENDFOR
 
 ในห้องปฏิบัติการควรเน้น Preventive Maintenance และการตรวจสภาพพื้นฐาน ส่วนงาน Predictive Maintenance อาจสาธิตด้วยข้อมูล Trend หรือซอฟต์แวร์ Monitoring โดยไม่ดัดแปลงระบบจริง
 
-\subsubsection{7.5.2 หลักการสร้างแผน PM}
+\subsubsection{หลักการสร้างแผน PM}
 
 แผน PM ที่ดีต้องตอบคำถาม 6 ข้อ
 
@@ -1023,6 +1016,8 @@ ENDFOR
 \begin{quote}
 \textbf{ข้อควรระวัง:} ระยะเปลี่ยน Grease, Battery, Belt, Seal และ Oil แตกต่างกันมากตามรุ่น ชั่วโมงทำงาน โหลด อุณหภูมิ และสภาพแวดล้อม ตารางต่อไปนี้เป็นโครงสร้างตัวอย่างเพื่อการเรียนรู้ ไม่ใช่คำสั่งบำรุงรักษาแทนคู่มือผู้ผลิต
 \end{quote}
+
+\newpage
 
 \subsubsection{ตาราง 8.5 แผน Preventive Maintenance ตัวอย่าง}
 
@@ -1045,7 +1040,7 @@ ENDFOR
     \end{tabularx}
 \end{table}
 
-\subsubsection{7.5.3 Daily Check}
+\subsubsection{Daily Check}
 
 รายการตรวจประจำวันควรสั้น ชัดเจน และทำได้ก่อนเริ่มผลิต ตัวอย่าง
 
@@ -1064,7 +1059,7 @@ ENDFOR
 
 การพบคราบ Grease เล็กน้อยไม่ได้แปลว่า Gearbox เสียเสมอ แต่ต้องเปรียบเทียบกับสภาพปกติของรุ่นนั้น ตรวจแหล่งที่มา ปริมาณ แนวโน้ม และคำแนะนำผู้ผลิต ห้ามเติม Grease เพิ่มทันทีโดยไม่มีข้อมูล เพราะการเติมเกินอาจเพิ่มแรงดัน ทำให้ Seal เสีย หรือทำให้ความร้อนสูงขึ้น
 
-\subsubsection{7.5.4 การตรวจ Bolt และการใช้ Torque}
+\subsubsection{การตรวจ Bolt และการใช้ Torque}
 
 Torque ของน็อตขึ้นกับขนาด เกรด วัสดุ สารหล่อลื่น และคำแนะนำผู้ผลิต การปฏิบัติที่เหมาะสมคือ
 
@@ -1079,7 +1074,7 @@ Torque ของน็อตขึ้นกับขนาด เกรด ว�
 
 ในกิจกรรมการศึกษา หากไม่มีค่าจากคู่มือ ให้ฝึกเฉพาะการอ่าน Torque Mark และการจัดทำแบบฟอร์ม ไม่ควรให้นักศึกษาทดลองขันโครงสร้างหุ่นยนต์จริงด้วยค่าที่คาดเดา
 
-\subsubsection{7.5.5 Encoder Backup Battery และข้อมูลตำแหน่ง}
+\subsubsection{Encoder Backup Battery และข้อมูลตำแหน่ง}
 
 หุ่นยนต์หลายรุ่นใช้ Battery เพื่อรักษาข้อมูลตำแหน่งของ Encoder/Resolver หรือ Serial Measurement Board เมื่อปิดกำลังหลัก ประเภท Battery ขั้นตอนเปลี่ยน และเงื่อนไขเปิด/ปิด Controller แตกต่างกันตามรุ่น
 
@@ -1113,7 +1108,7 @@ Torque ของน็อตขึ้นกับขนาด เกรด ว�
 
 \textbf{ข้อจำกัด:} คำตอบนี้ใช้รอบเวลาในโจทย์เท่านั้น การใช้งานจริงต้องอ้างคู่มือและ Alarm/Condition ของ Battery
 
-\subsubsection{7.5.6 Calibration และ Mastering}
+\subsubsection{Calibration และ Mastering}
 
 \textbf{Mastering} กำหนดความสัมพันธ์ระหว่างค่าตำแหน่งของ Encoder กับตำแหน่งอ้างอิงทางกลของแต่ละแกน ส่วน \textbf{Calibration} ใช้ตรวจหรือกำหนดความสัมพันธ์ของระบบกับตำแหน่งจริง เช่น TCP, Base, User Frame หรือความแม่นยำของ Path
 
@@ -1129,7 +1124,7 @@ Torque ของน็อตขึ้นกับขนาด เกรด ว�
     \item พบความคลาดเคลื่อนตำแหน่งสูงกว่าปกติ
 \end{itemize}
 
-\subsubsection{7.5.7 Zero Position และ Mastering Marks}
+\subsubsection{Zero Position และ Mastering Marks}
 
 หุ่นยนต์หลายรุ่นมี Mastering Marks, Witness Marks หรือ Calibration Fixtures สำหรับจัดแกนเข้าสู่ตำแหน่งอ้างอิง ขั้นตอนเชิงแนวคิดคือ
 
@@ -1146,7 +1141,7 @@ Torque ของน็อตขึ้นกับขนาด เกรด ว�
 
 ชื่อเมนู เช่น Zero Position Mastering, Quick Mastering, Single Axis Mastering หรือ Axis Calibration เป็นคำเฉพาะของผู้ผลิตและ Controller ไม่ควรนำลำดับของยี่ห้อหนึ่งไปใช้กับอีกยี่ห้อโดยตรง
 
-\subsubsection{7.5.8 การทวนสอบหลังซ่อมบำรุง}
+\subsubsection{การทวนสอบหลังซ่อมบำรุง}
 
 หลังงานซ่อมบำรุงต้องมีขั้นตอน Return to Service
 
@@ -1163,7 +1158,7 @@ Torque ของน็อตขึ้นกับขนาด เกรด ว�
     \item บันทึกผล ผู้อนุมัติ และ Backup Version
 \end{itemize}
 
-\subsubsection{7.5.9 ตัวชี้วัดด้านการบำรุงรักษา}
+\subsubsection{ตัวชี้วัดด้านการบำรุงรักษา}
 
 ตัวชี้วัดที่ใช้ติดตามระบบ ได้แก่
 
@@ -1243,11 +1238,11 @@ A=\frac{180}{180+2}=0.9890\approx98.90\%
     \caption{Mastering Marks และการตั้งตำแหน่งอ้างอิง}
 \end{figure}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
 
-\subsection{7.6 การแก้ไขปัญหาเบื้องต้น}
 
-\subsubsection{7.6.1 หลักการ Troubleshooting}
+\subsection{การแก้ไขปัญหาเบื้องต้น}
+
+\subsubsection{หลักการ Troubleshooting}
 
 Troubleshooting ที่มีประสิทธิภาพต้องแยก “อาการ” ออกจาก “สาเหตุ” ตัวอย่างเช่น หุ่นยนต์หยุดที่จุด Pick เป็นอาการ สาเหตุอาจเป็น Sensor ไม่มา Air Pressure ต่ำ โปรแกรมรอสัญญาณผิด Address Gripper จับไม่สำเร็จ หรือ Safety Stop จากอุปกรณ์อื่น การเปลี่ยน Parameter โดยยังไม่ระบุสาเหตุอาจทำให้ปัญหาซับซ้อนและสร้างความเสี่ยง
 
@@ -1262,7 +1257,7 @@ Troubleshooting ที่มีประสิทธิภาพต้องแ�
     \item \textbf{ยืนยันและป้องกันซ้ำ} — ทดสอบหลาย Cycle คืนค่า Guard/Parameter บันทึก Root Cause และ Action
 \end{enumerate}
 
-\subsubsection{7.6.2 การจำแนกปัญหา}
+\subsubsection{การจำแนกปัญหา}
 
 \begin{table}[htbp]
     \centering
@@ -1283,7 +1278,7 @@ Troubleshooting ที่มีประสิทธิภาพต้องแ�
     \end{tabularx}
 \end{table}
 
-\subsubsection{7.6.3 การอ่าน Alarm อย่างเป็นระบบ}
+\subsubsection{การอ่าน Alarm อย่างเป็นระบบ}
 
 เมื่อพบ Alarm ควรบันทึก
 
@@ -1324,7 +1319,7 @@ Troubleshooting ที่มีประสิทธิภาพต้องแ�
 \textbf{ข้อจำกัดของตาราง:} รหัส Alarm และความหมายอาจแตกต่างตาม Controller Family, Software Option และ Revision ตารางนี้คงรายการตามขอบเขตบทเพื่อการฝึกวิเคราะห์เท่านั้น ก่อนปฏิบัติจริงต้องเปิด Alarm Code Manual ของ Controller และใช้ข้อความ Alarm เต็มจากหน้าจอเป็นแหล่งอ้างอิงหลัก
 \end{quote}
 
-\subsubsection{7.6.4 Fault Isolation}
+\subsubsection{Fault Isolation}
 
 การแยกสาเหตุควรเริ่มจากหลักฐาน ไม่ใช่การเปลี่ยนอะไหล่โดยคาดเดา ตัวอย่างกรณี Gripper ไม่ยืนยัน
 
@@ -1339,7 +1334,7 @@ Troubleshooting ที่มีประสิทธิภาพต้องแ�
 
 การไล่ตามลำดับดังกล่าวลดการถอดอุปกรณ์โดยไม่จำเป็นและทำให้รายงาน Root Cause ชัดเจน
 
-\subsubsection{7.6.5 Safe Recovery}
+\subsubsection{Safe Recovery}
 
 หลังแก้สาเหตุ ต้องวางแผน Recovery ตาม State ของระบบ
 
@@ -1373,11 +1368,11 @@ Troubleshooting ที่มีประสิทธิภาพต้องแ�
     \caption{Flowchart การ Troubleshooting หุ่นยนต์}
 \end{figure}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
 
-\subsection{7.7 ความปลอดภัยในการทำงานกับหุ่นยนต์}
 
-\subsubsection{7.7.1 กรอบมาตรฐานที่เกี่ยวข้อง}
+\subsection{ความปลอดภัยในการทำงานกับหุ่นยนต์}
+
+\subsubsection{กรอบมาตรฐานที่เกี่ยวข้อง}
 
 การจัดการความปลอดภัยของหุ่นยนต์อุตสาหกรรมต้องพิจารณาทั้งตัวหุ่นยนต์และการรวมเป็นเซลล์
 
@@ -1393,7 +1388,7 @@ Troubleshooting ที่มีประสิทธิภาพต้องแ�
 
 การกล่าวว่า Safety PLC เป็น “SIL 2–3 หรือ PL d–e” โดยไม่ทำ Risk Assessment และ Validation ไม่เพียงพอ ระดับที่ต้องการต้องได้จากการประเมินความเสี่ยงและการออกแบบ Safety Function แต่ละฟังก์ชัน
 
-\subsubsection{7.7.2 ลำดับชั้นการลดความเสี่ยง}
+\subsubsection{ลำดับชั้นการลดความเสี่ยง}
 
 แนวทางตาม ISO 12100 เริ่มจาก
 
@@ -1405,7 +1400,7 @@ Troubleshooting ที่มีประสิทธิภาพต้องแ�
 
 PPE และป้ายเตือนไม่สามารถทดแทน Guard หรือการแยกพลังงานเมื่อยังมีอันตรายจากการเคลื่อนที่ของหุ่นยนต์
 
-\subsubsection{7.7.3 Operating Modes และการสอน}
+\subsubsection{Operating Modes และการสอน}
 
 ระบบหุ่นยนต์อาจมี Automatic, Manual Reduced-speed และโหมดอื่นตามผู้ผลิต ในห้องปฏิบัติการควรกำหนดว่า
 
@@ -1418,7 +1413,7 @@ PPE และป้ายเตือนไม่สามารถทดแท�
     \item ค่า 250 mm/s มักพบเป็นขีดจำกัดอ้างอิงสำหรับการเคลื่อนที่แบบ Manual Reduced-speed ในระบบอุตสาหกรรมหลายชนิด แต่ต้องใช้ค่าที่มาตรฐานและผู้ผลิตกำหนดสำหรับระบบจริง ไม่ควรตั้งค่าโดยอาศัยตัวเลขนี้เพียงอย่างเดียว
 \end{itemize}
 
-\subsubsection{7.7.4 Safety Distance}
+\subsubsection{Safety Distance}
 
 รูปแบบสมการพื้นฐานที่ใช้ในบทเรียนคือ
 
@@ -1465,7 +1460,7 @@ S=(2{,}000)(0.015)+850=30+850=880\text{ mm}
 
 \textbf{ข้อควรระวังในการออกแบบจริง:} หาก 15 ms เป็นเพียงเวลาของ Sensor ต้องวัดหรือใช้ค่า Stop Time รวมของ Robot Cell แล้วคำนวณใหม่ รวมทั้งตรวจสูตรและค่าคงที่สำหรับชนิดอุปกรณ์ตาม ISO 13855:2024 และคู่มือผู้ผลิต
 
-\subsubsection{7.7.5 Warning Zone และ Protective Zone}
+\subsubsection{Warning Zone และ Protective Zone}
 
 Area Scanner สามารถกำหนดหลาย Zone เช่น
 
@@ -1477,7 +1472,7 @@ Area Scanner สามารถกำหนดหลาย Zone เช่น
 
 การกำหนด Zone ต้องพิจารณา Stop Time, Scanner Resolution, Field Tolerance, Floor Reflection, Blind Spot, Tool Extension และตำแหน่งทุกแกน ไม่ใช่ดูเฉพาะฐานหุ่นยนต์
 
-\subsubsection{7.7.6 LOTO สำหรับงานบำรุงรักษา}
+\subsubsection{LOTO สำหรับงานบำรุงรักษา}
 
 ขั้นตอนทั่วไปของ LOTO
 
@@ -1528,9 +1523,9 @@ Area Scanner สามารถกำหนดหลาย Zone เช่น
     \caption{Warning Zone และ Protective Zone ของเซลล์หุ่นยนต์}
 \end{figure}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
 
-\subsection{7.8 เปรียบเทียบภาษาโปรแกรมและซอฟต์แวร์จากผู้ผลิต}
+
+\subsection{เปรียบเทียบภาษาโปรแกรมและซอฟต์แวร์จากผู้ผลิต}
 
 \subsubsection{ตาราง 8.7 ภาษาโปรแกรมหุ่นยนต์จากผู้ผลิตชั้นนำ}
 
@@ -1573,13 +1568,13 @@ Area Scanner สามารถกำหนดหลาย Zone เช่น
     \end{tabularx}
 \end{table}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+\newpage
 
-\subsection{7.9 กิจกรรมปฏิบัติการประจำบท}
+\subsection{กิจกรรมปฏิบัติการประจำบท}
 
 \subsection{กิจกรรมปฏิบัติการที่ 8-1: การสอนตำแหน่งและเขียนโปรแกรม Pick-and-Place}
 
-\subsubsection{1. วัตถุประสงค์}
+\subsubsection{วัตถุประสงค์}
 
 เมื่อจบกิจกรรม นักศึกษาสามารถ
 
@@ -1591,11 +1586,11 @@ Area Scanner สามารถกำหนดหลาย Zone เช่น
     \item ปฏิบัติงานใน Manual Reduced-speed โดยใช้ Enabling Device ได้ถูกต้อง
 \end{itemize}
 
-\subsubsection{2. หลักการและทฤษฎีที่เกี่ยวข้อง}
+\subsubsection{หลักการและทฤษฎีที่เกี่ยวข้อง}
 
 กิจกรรมใช้หลัก Coordinate Frame, TCP, Approach–Process–Retreat, PTP/Linear Motion, Digital I/O และ Handshake โปรแกรมต้องแยกจุด Approach ออกจากจุด Pick/Place และต้องรอสัญญาณ Gripper Confirm ก่อนยกชิ้นงาน
 
-\subsubsection{3. อุปกรณ์ เครื่องมือ และซอฟต์แวร์}
+\subsubsection{อุปกรณ์ เครื่องมือ และซอฟต์แวร์}
 
 \begin{table}[htbp]
     \centering
@@ -1614,7 +1609,7 @@ Area Scanner สามารถกำหนดหลาย Zone เช่น
     \end{tabular}
 \end{table}
 
-\subsubsection{4. แผนภาพหรือชุดทดลอง}
+\subsubsection{แผนภาพหรือชุดทดลอง}
 
 \begin{verbatim}
 Pick Tray -> P_PICK_APP -> P_PICK
@@ -1624,7 +1619,7 @@ P_PLACE_APP -> P_PLACE -> Place Tray
 Return -> P_HOME
 \end{verbatim}
 
-\subsubsection{5. ข้อควรระวังด้านความปลอดภัย}
+\subsubsection{ข้อควรระวังด้านความปลอดภัย}
 
 \begin{itemize}
     \item ผู้ควบคุม Teach Pendant มีเพียงคนเดียวต่อรอบ
@@ -1636,7 +1631,7 @@ Return -> P_HOME
     \item หากมีการเคลื่อนที่ผิดทิศ ให้ปล่อย Enabling Device หรือใช้วิธีหยุดที่ได้รับการฝึกทันที
 \end{itemize}
 
-\subsubsection{6. ขั้นตอนการปฏิบัติ}
+\subsubsection{ขั้นตอนการปฏิบัติ}
 
 \begin{enumerate}
     \item ทำ Pre-job Briefing และตรวจ Checklist ความปลอดภัย
@@ -1659,7 +1654,7 @@ Return -> P_HOME
     \item Backup โปรแกรมและส่ง Point List
 \end{enumerate}
 
-\subsubsection{7. ตารางบันทึกผล}
+\subsubsection{ตารางบันทึกผล}
 
 \begin{table}[htbp]
     \centering
@@ -1688,7 +1683,7 @@ Return -> P_HOME
     \end{tabular}
 \end{table}
 
-\subsubsection{8. การคำนวณและวิเคราะห์ผล}
+\subsubsection{การคำนวณและวิเคราะห์ผล}
 
 ค่าเฉลี่ย Cycle Time
 
@@ -1704,11 +1699,11 @@ Return -> P_HOME
 
 นักศึกษาต้องอธิบายว่าการลดเวลามาจากจุดใด และ Path Deviation ที่เพิ่มขึ้นยังอยู่ใน Clearance ที่ยอมรับได้หรือไม่
 
-\subsubsection{9. การเปรียบเทียบผลจริงกับทฤษฎีหรือแบบจำลอง}
+\subsubsection{การเปรียบเทียบผลจริงกับทฤษฎีหรือแบบจำลอง}
 
 หากใช้ OLP ให้เปรียบเทียบ Cycle Time และ Path จาก Simulation กับระบบจริง พร้อมอธิบายความต่างจาก Acceleration Limit, Controller Option, Payload, I/O Delay และ Gripper Response
 
-\subsubsection{10. คำถามหลังการทดลอง}
+\subsubsection{คำถามหลังการทดลอง}
 
 \begin{enumerate}
     \item เหตุใดจุด Pick และ Place จึงควรใช้ Fine มากกว่าจุดผ่านกลางอากาศ
@@ -1718,7 +1713,7 @@ Return -> P_HOME
     \item Blending ที่มากเกินไปอาจทำให้เกิดความเสี่ยงใด
 \end{enumerate}
 
-\subsubsection{11. เกณฑ์การประเมิน}
+\subsubsection{เกณฑ์การประเมิน}
 
 \begin{table}[htbp]
     \centering
@@ -1737,11 +1732,11 @@ Return -> P_HOME
     \end{tabular}
 \end{table}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+
 
 \subsection{กิจกรรมปฏิบัติการที่ 8-2: Daily Check และการจัดทำแผน Preventive Maintenance}
 
-\subsubsection{1. วัตถุประสงค์}
+\subsubsection{วัตถุประสงค์}
 
 \begin{itemize}
     \item ตรวจสภาพภายนอกของหุ่นยนต์และ End Effector ได้อย่างเป็นระบบ
@@ -1750,11 +1745,11 @@ Return -> P_HOME
     \item บันทึกหลักฐานโดยไม่แต่งค่าที่ไม่ได้วัด
 \end{itemize}
 
-\subsubsection{2. หลักการและทฤษฎีที่เกี่ยวข้อง}
+\subsubsection{หลักการและทฤษฎีที่เกี่ยวข้อง}
 
 PM ใช้การตรวจซ้ำตามรอบและเกณฑ์ที่กำหนด การสังเกตต้องอ้างอิง Baseline หรือคู่มือ ไม่ควรสรุปสาเหตุจากลักษณะภายนอกเพียงอย่างเดียว
 
-\subsubsection{3. อุปกรณ์ เครื่องมือ และซอฟต์แวร์}
+\subsubsection{อุปกรณ์ เครื่องมือ และซอฟต์แวร์}
 
 \begin{table}[htbp]
     \centering
@@ -1773,11 +1768,11 @@ PM ใช้การตรวจซ้ำตามรอบและเกณ�
     \end{tabular}
 \end{table}
 
-\subsubsection{4. แผนภาพหรือวงจร}
+\subsubsection{แผนภาพหรือวงจร}
 
 ใช้รูปที่ 8.4 และแผนผังตำแหน่งตรวจของหุ่นยนต์รุ่นที่ห้องปฏิบัติการใช้งาน
 
-\subsubsection{5. ข้อควรระวังด้านความปลอดภัย}
+\subsubsection{ข้อควรระวังด้านความปลอดภัย}
 
 \begin{itemize}
     \item หยุดระบบและใช้วิธีแยกพลังงานตามขอบเขตงาน
@@ -1787,7 +1782,7 @@ PM ใช้การตรวจซ้ำตามรอบและเกณ�
     \item ไม่ใช้มือสัมผัสบริเวณที่สงสัยว่าร้อนหรือมีรอยรั่ว
 \end{itemize}
 
-\subsubsection{6. ขั้นตอนการปฏิบัติ}
+\subsubsection{ขั้นตอนการปฏิบัติ}
 
 \begin{enumerate}
     \item อ่าน Manual หัวข้อ Maintenance Schedule ของรุ่นฝึก
@@ -1802,7 +1797,7 @@ PM ใช้การตรวจซ้ำตามรอบและเกณ�
     \item นำเสนอ 5 นาทีต่อกลุ่ม
 \end{enumerate}
 
-\subsubsection{7. ตารางบันทึกผล}
+\subsubsection{ตารางบันทึกผล}
 
 \begin{table}[htbp]
     \centering
@@ -1821,7 +1816,7 @@ PM ใช้การตรวจซ้ำตามรอบและเกณ�
     \end{tabular}
 \end{table}
 
-\subsubsection{8. การคำนวณและวิเคราะห์ผล}
+\subsubsection{การคำนวณและวิเคราะห์ผล}
 
 ให้นักศึกษาสร้าง Priority Number เชิงการศึกษา
 
@@ -1831,11 +1826,11 @@ P=S\times O\times D
 
 โดย $S$ คือความรุนแรง $O$ คือโอกาสเกิด และ $D$ คือความยากในการตรวจพบ ให้คะแนน 1–5 ตัวชี้วัดนี้ใช้จัดลำดับการติดตามในกิจกรรมเท่านั้น ไม่แทน Risk Assessment ตามมาตรฐาน
 
-\subsubsection{9. การเปรียบเทียบผลจริงกับทฤษฎีหรือแบบจำลอง}
+\subsubsection{การเปรียบเทียบผลจริงกับทฤษฎีหรือแบบจำลอง}
 
 เปรียบเทียบ PM Schedule ที่กลุ่มสร้างกับคู่มือผู้ผลิต ระบุรายการที่เป็น Mandatory, Recommended และ Condition-based เพิ่มเติม
 
-\subsubsection{10. คำถามหลังการทดลอง}
+\subsubsection{คำถามหลังการทดลอง}
 
 \begin{enumerate}
     \item เหตุใดรอบ PM จึงไม่ควรคัดลอกจากหุ่นยนต์คนละรุ่น
@@ -1845,7 +1840,7 @@ P=S\times O\times D
     \item หลักฐานใดทำให้ PM Record ตรวจสอบย้อนหลังได้
 \end{enumerate}
 
-\subsubsection{11. เกณฑ์การประเมิน}
+\subsubsection{เกณฑ์การประเมิน}
 
 \begin{table}[htbp]
     \centering
@@ -1863,11 +1858,11 @@ P=S\times O\times D
     \end{tabular}
 \end{table}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+
 
 \subsection{กิจกรรมปฏิบัติการที่ 8-3: การอ่าน Alarm และ Troubleshooting ด้วยสถานการณ์จำลอง}
 
-\subsubsection{1. วัตถุประสงค์}
+\subsubsection{วัตถุประสงค์}
 
 \begin{itemize}
     \item อ่าน Alarm Code, Event Log, Program Line และ I/O State ได้
@@ -1876,11 +1871,11 @@ P=S\times O\times D
     \item แยกการ Reset, Repair, Mastering และ Escalation ได้
 \end{itemize}
 
-\subsubsection{2. หลักการและทฤษฎีที่เกี่ยวข้อง}
+\subsubsection{หลักการและทฤษฎีที่เกี่ยวข้อง}
 
 ใช้กระบวนการ Symptoms \(\rightarrow\) Safe State \(\rightarrow\) Evidence \(\rightarrow\) Hypothesis \(\rightarrow\) Test \(\rightarrow\) Verify \(\rightarrow\) Record การทดลองนี้มุ่งฝึกวิเคราะห์ ไม่มุ่งสร้าง Fault ทางกายภาพที่อาจทำให้อุปกรณ์เสียหาย
 
-\subsubsection{3. อุปกรณ์ เครื่องมือ และซอฟต์แวร์}
+\subsubsection{อุปกรณ์ เครื่องมือ และซอฟต์แวร์}
 
 \begin{table}[htbp]
     \centering
@@ -1897,11 +1892,11 @@ P=S\times O\times D
     \end{tabular}
 \end{table}
 
-\subsubsection{4. แผนภาพหรือวงจร}
+\subsubsection{แผนภาพหรือวงจร}
 
 ใช้รูปที่ 8.7 และ Block Diagram I/O Trainer
 
-\subsubsection{5. ข้อควรระวังด้านความปลอดภัย}
+\subsubsection{ข้อควรระวังด้านความปลอดภัย}
 
 \begin{itemize}
     \item \textbf{ห้ามถอด Encoder Connector ของหุ่นยนต์จริงขณะมีพลังงาน}
@@ -1911,7 +1906,7 @@ P=S\times O\times D
     \item การวัดไฟฟ้าทำเฉพาะชุดฝึกแรงดันต่ำที่แยกจากวงจรหุ่นยนต์จริง
 \end{itemize}
 
-\subsubsection{6. ขั้นตอนการปฏิบัติ}
+\subsubsection{ขั้นตอนการปฏิบัติ}
 
 \begin{enumerate}
     \item รับ Case File จากอาจารย์ เช่น Gripper Timeout, Fieldbus Disconnect หรือ Position-related Alarm Log
@@ -1927,7 +1922,7 @@ P=S\times O\times D
     \item แลก Case กับอีกกลุ่มเพื่อตรวจทาน
 \end{enumerate}
 
-\subsubsection{7. ตารางบันทึกผล}
+\subsubsection{ตารางบันทึกผล}
 
 \begin{table}[htbp]
     \centering
@@ -1954,15 +1949,15 @@ P=S\times O\times D
     \end{tabular}
 \end{table}
 
-\subsubsection{8. การคำนวณและวิเคราะห์ผล}
+\subsubsection{การคำนวณและวิเคราะห์ผล}
 
 หาก Case มีข้อมูล Downtime ให้วิเคราะห์ MTTR และเวลาที่เสียจากการ Reset โดยไม่มีการวิเคราะห์ เปรียบเทียบกับขั้นตอน Fault Isolation ที่เป็นระบบ
 
-\subsubsection{9. การเปรียบเทียบผลจริงกับทฤษฎีหรือแบบจำลอง}
+\subsubsection{การเปรียบเทียบผลจริงกับทฤษฎีหรือแบบจำลอง}
 
 อธิบายว่าข้อมูลใน Simulator หรือ Screenshot ใดอาจไม่สะท้อน Hardware จริง เช่น Contact Resistance, Intermittent Cable หรือ Mechanical Binding
 
-\subsubsection{10. คำถามหลังการทดลอง}
+\subsubsection{คำถามหลังการทดลอง}
 
 \begin{enumerate}
     \item เหตุใดการ Reset Alarm ซ้ำจึงอาจทำให้ข้อมูลวิเคราะห์หาย
@@ -1972,7 +1967,7 @@ P=S\times O\times D
     \item Corrective Action และ Preventive Action ต่างกันอย่างไร
 \end{enumerate}
 
-\subsubsection{11. เกณฑ์การประเมิน}
+\subsubsection{เกณฑ์การประเมิน}
 
 \begin{table}[htbp]
     \centering
@@ -1990,83 +1985,83 @@ P=S\times O\times D
     \end{tabular}
 \end{table}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+\newpage
 
-\subsection{8. ความเข้าใจผิดที่พบบ่อย}
+\subsection{ความเข้าใจผิดที่พบบ่อย}
 
-\subsubsection{8.1 “จุดปลายเหมือนกัน จึงใช้ PTP หรือ LIN ก็เหมือนกัน”}
+\subsubsection{“จุดปลายเหมือนกัน จึงใช้ PTP หรือ LIN ก็เหมือนกัน”}
 
 ไม่ถูกต้อง เพราะ PTP วางแผนใน Joint Space และไม่รับประกันเส้นทาง TCP ขณะที่ LIN ควบคุมให้ TCP เดินเป็นเส้นตรง จุดต้นและปลายเหมือนกันอาจให้ Swept Volume, Singularity Risk และ Cycle Time ต่างกัน
 
-\subsubsection{8.2 “TCP คือปลายโลหะของ Tool เสมอ”}
+\subsubsection{“TCP คือปลายโลหะของ Tool เสมอ”}
 
 TCP เป็นจุดอ้างอิงที่ผู้ใช้กำหนด อาจอยู่ที่ปลายลวดเชื่อม กึ่งกลางนิ้วจับ จุดโฟกัสของกล้อง หรือจุดเสมือนนอกตัว Tool ได้ สิ่งสำคัญคือ TCP ต้องสัมพันธ์กับงานและได้รับการ Calibration
 
-\subsubsection{8.3 “User Frame เปลี่ยนแล้วทุกจุดจะถูกต้องโดยอัตโนมัติ”}
+\subsubsection{“User Frame เปลี่ยนแล้วทุกจุดจะถูกต้องโดยอัตโนมัติ”}
 
 จุดที่บันทึกสัมพันธ์กับ User Frame จะย้ายตาม Frame แต่ความถูกต้องขึ้นกับการสอน Frame, Convention, Tool และ Fixture จริง หาก Frame ผิด จุดทั้งหมดจะผิดอย่างเป็นระบบ
 
-\subsubsection{8.4 “CNT 100 หมายถึงหุ่นยนต์ผ่านจุดด้วยความเร็วสูงสุดเสมอ”}
+\subsubsection{“CNT 100 หมายถึงหุ่นยนต์ผ่านจุดด้วยความเร็วสูงสุดเสมอ”}
 
 CNT/Zone กำหนดระดับการต่อเนื่องหรือการเบี่ยงจากจุด ไม่ใช่คำสั่งให้ใช้ความเร็วสูงสุดโดยตรง ความเร็วจริงขึ้นกับ Speed Command, Acceleration, Geometry, Payload และข้อจำกัดของ Controller
 
-\subsubsection{8.5 “Simulation ไม่ชน แปลว่าระบบจริงไม่ชน”}
+\subsubsection{“Simulation ไม่ชน แปลว่าระบบจริงไม่ชน”}
 
 Simulation ใช้ Model ที่อาจไม่มีสายยืดหยุ่น ความคลาดเคลื่อน Fixture, Tool Deflection, Backlash, Thermal Effect หรือวัตถุชั่วคราว จึงยังต้องทำ On-site Validation ที่ความเร็วต่ำ
 
-\subsubsection{8.6 “Emergency Stop ใช้แทน LOTO ได้”}
+\subsubsection{“Emergency Stop ใช้แทน LOTO ได้”}
 
 Emergency Stop เป็นคำสั่งหยุดฉุกเฉิน แต่ไม่ได้แยกพลังงานทุกชนิดและอาจถูก Reset ได้ งานซ่อมบำรุงที่มีการสัมผัสอันตรายต้องใช้ขั้นตอนควบคุมพลังงานตาม LOTO
 
-\subsubsection{8.7 “Alarm หายหลัง Reset แปลว่าปัญหาจบแล้ว”}
+\subsubsection{“Alarm หายหลัง Reset แปลว่าปัญหาจบแล้ว”}
 
 Alarm บางชนิดเกิดเป็นระยะหรือกลับมาเมื่อโหลดซ้ำ การแก้ไขต้องยืนยัน Root Cause ทดสอบหลาย Cycle และติดตาม Trend ไม่ใช่พิจารณาเพียงว่าไฟ Alarm ดับ
 
-\subsubsection{8.8 “ต้องเติม Grease ทุก 3 เดือนสำหรับหุ่นยนต์ทุกตัว”}
+\subsubsection{“ต้องเติม Grease ทุก 3 เดือนสำหรับหุ่นยนต์ทุกตัว”}
 
 ไม่มีรอบสากลเดียว ระยะและวิธีหล่อลื่นขึ้นกับรุ่น ชั่วโมงทำงาน โหลด ตำแหน่งติดตั้ง และชนิด Grease การเติมผิดชนิดหรือเกินปริมาณอาจทำให้เสียหาย
 
-\subsubsection{8.9 “เปลี่ยน Servo Motor แล้วสอน TCP ใหม่ก็เพียงพอ”}
+\subsubsection{“เปลี่ยน Servo Motor แล้วสอน TCP ใหม่ก็เพียงพอ”}
 
 การเปลี่ยน Motor/Encoder อาจกระทบ Mastering ของแกน ต้องทำขั้นตอนอ้างอิงตำแหน่งตามผู้ผลิตก่อน แล้วจึงตรวจ TCP, User Frame และจุดกระบวนการ
 
-\subsubsection{8.10 “Cobot ปลอดภัยโดยไม่ต้องมีการประเมินความเสี่ยง”}
+\subsubsection{“Cobot ปลอดภัยโดยไม่ต้องมีการประเมินความเสี่ยง”}
 
 Cobot เป็นองค์ประกอบหนึ่งของระบบ ความเสี่ยงยังขึ้นกับ Tool, Workpiece, Speed, Force, Pinch Point และ Process เช่น ของร้อนหรือคม ต้องประเมิน Robot Application ทั้งระบบ
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
 
-\subsection{9. การประยุกต์ใช้ในงานจริง}
 
-\subsubsection{9.1 งานเชื่อมอาร์ก}
+\subsection{การประยุกต์ใช้ในงานจริง}
+
+\subsubsection{งานเชื่อมอาร์ก}
 
 ลำดับที่เหมาะสมอาจใช้ Joint Motion ไปยัง Approach, Linear Motion เข้า Weld Start, Linear/Circular Motion ตามแนวเชื่อม และ Blend ที่รักษาความเร็วต่อเนื่อง Tool Frame ต้องผูกกับปลายลวดเชื่อม ส่วน User Frame ผูกกับชิ้นงานหรือ Positioner หากชิ้นงานหมุน ต้องใช้การ Calibration และ Coordinated Motion ที่เหมาะสม
 
 ข้อมูลสำคัญนอกจาก Motion ได้แก่ Welding Schedule, Arc Start Confirmation, Gas/Current Fault, Touch Sensing และ Recovery หลัง Arc Fault การเพิ่ม Speed โดยไม่ปรับ Process Parameter อาจทำให้คุณภาพแนวเชื่อมเปลี่ยน
 
-\subsubsection{9.2 งานหยิบวางจาก Conveyor}
+\subsubsection{งานหยิบวางจาก Conveyor}
 
 โปรแกรมต้องประสาน Vision/Encoder Conveyor, Part Tracking, Gripper Confirm และ Place Clear จุด Pick อาจเปลี่ยนตามตำแหน่งชิ้นงานแบบ Real-time จึงต้องใช้ Frame Transformation และ Tracking Function ของ Controller การทดสอบต้องรวมกรณีชิ้นงานขาด ชิ้นงานซ้อน Sensor ล่าช้า และ Gripper จับไม่เต็ม
 
-\subsubsection{9.3 งาน Machine Tending}
+\subsubsection{งาน Machine Tending}
 
 หุ่นยนต์ทำงานร่วมกับประตูเครื่องจักร Chuck/Clamp และ Cycle Start Handshake จุดสำคัญคือการไม่เข้าเครื่องจนกว่า Spindle หยุดและประตูเปิดยืนยัน รวมทั้งห้ามเริ่ม Machine Cycle จนหุ่นยนต์ออกจากพื้นที่และส่ง Robot Clear การ Recover หลัง Cycle หยุดต้องรู้ว่าชิ้นงานอยู่ที่ Gripper, Chuck หรือ Fixture
 
-\subsubsection{9.4 งานพ่นสีหรือเดินกาว}
+\subsubsection{งานพ่นสีหรือเดินกาว}
 
 ต้องควบคุม TCP Speed, Orientation และ Standoff Distance ต่อเนื่อง ใช้ Linear/Circular/Spline ตามความสามารถของระบบ จุดมากเกินไปทำให้โปรแกรมซับซ้อน ส่วนจุดน้อยเกินไปทำให้ Path ไม่ตามผิว ควรใช้ OLP จาก CAD และตรวจ Flow/Trigger Delay ของอุปกรณ์ Process
 
-\subsubsection{9.5 งานประกอบ}
+\subsubsection{งานประกอบ}
 
 งานประกอบต้องรักษาแนวเข้า ลดความเร็วใกล้ Contact และอาจใช้ Force/Torque Control หรือ Compliance ฟังก์ชันเหล่านี้ไม่ควรถูกใช้แทน Fixture ที่ออกแบบไม่ดี การวิเคราะห์ Jam ต้องแยกความผิดพลาดจากตำแหน่ง Part, Tool Wear, Sensor และ Programming
 
-\subsubsection{9.6 การบำรุงรักษาเชิงคาดการณ์}
+\subsubsection{การบำรุงรักษาเชิงคาดการณ์}
 
 ระบบสมัยใหม่สามารถเก็บข้อมูล Motor Load, Temperature, Alarm Frequency, Cycle Count และ Stop Pattern เพื่อระบุแนวโน้ม การตีความต้องมี Baseline และ Context ตัวอย่างเช่น Motor Load สูงขึ้นอาจเกิดจาก Payload เปลี่ยน Grease หนืดขึ้น กลไกติดขัด หรือเส้นทางใหม่ ไม่ควรสรุปว่า Gearbox เสียจากตัวแปรเดียว
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
 
-\subsection{10. สรุปท้ายบท}
+
+\subsection{สรุปท้ายบท}
 
 การควบคุมและเขียนโปรแกรมหุ่นยนต์อุตสาหกรรมเริ่มจากการกำหนดกรอบอ้างอิงที่ถูกต้อง Joint Coordinate เหมาะกับการควบคุมท่าทางแกน World/Base Coordinate เหมาะกับการเคลื่อนตามพื้นที่ Tool Coordinate เหมาะกับการเคลื่อนตามแนวเครื่องมือ และ User/Work Object Coordinate ช่วยให้โปรแกรมสัมพันธ์กับ Fixture หรือชิ้นงาน
 
@@ -2080,9 +2075,9 @@ Troubleshooting ที่ดีเริ่มจากทำให้ระบ�
 
 ด้านความปลอดภัย การออกแบบและใช้งาน Robot Cell ต้องพิจารณา ISO 10218-1:2025, ISO 10218-2:2025, ISO 12100, ISO 13855 และมาตรฐานควบคุมที่เกี่ยวข้อง ระยะป้องกันต้องใช้เวลาหยุดรวมของระบบ การกด Emergency Stop ไม่เท่ากับ LOTO และการเข้า Safeguarded Space ต้องเป็นไปตามขั้นตอนที่ผ่าน Risk Assessment
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
 
-\subsection{11. คำถามทบทวนท้ายบท}
+
+\subsection{คำถามทบทวนท้ายบท}
 
 \begin{enumerate}
     \item อธิบายความแตกต่างระหว่าง Joint Coordinate และ World Coordinate ในการ Jog หุ่นยนต์
@@ -2105,9 +2100,9 @@ Troubleshooting ที่ดีเริ่มจากทำให้ระบ�
     \item เหตุใด Cobot ยังต้องมี Risk Assessment ระดับ Application
 \end{enumerate}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+\newpage
 
-\subsection{12. แบบฝึกหัดท้ายบท}
+\subsection{แบบฝึกหัดท้ายบท}
 
 \subsubsection{12.1 ระดับพื้นฐาน}
 
@@ -2155,7 +2150,7 @@ Troubleshooting ที่ดีเริ่มจากทำให้ระบ�
     \item ตรวจ Alarm ค้างจากกะก่อน
 \end{enumerate}
 
-\subsubsection{12.2 ระดับวิเคราะห์}
+\subsubsection{ระดับวิเคราะห์}
 
 \paragraph{ข้อ 6}
 
@@ -2214,9 +2209,9 @@ J HOME
 
 Light Curtain มี Response Time 15 ms, Safety Logic และ Network รวม 20 ms, Robot Stop Time ที่วัดได้ 320 ms และใช้ค่าตามแบบฝึก $K=2{,}000$ mm/s, $C=850$ mm, Safety Margin เพิ่ม 30 ms จงคำนวณระยะ $S$ และเปรียบเทียบกับการคำนวณที่ใช้ 15 ms เพียงค่าเดียว
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+\newpage
 
-\subsection{12.4 แนวคำตอบสำหรับผู้สอน}
+\subsection{แนวคำตอบสำหรับผู้สอน}
 
 \subsubsection{เฉลยข้อ 1}
 
@@ -2443,7 +2438,7 @@ S_{sensor}=2000(0.015)+850=880\text{ mm}
 
 การใช้ Sensor Time เพียงอย่างเดียวทำให้ระยะต่ำกว่าตัวอย่างที่รวม Stop Time ถึง 740 mm แสดงว่าการวัดเวลาหยุดรวมมีความสำคัญมาก ทั้งนี้การออกแบบจริงต้องใช้สูตรและค่าพารามิเตอร์ตาม ISO 13855:2024 และอุปกรณ์จริง
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+
 
 \subsection{13. ข้อเสนอแนะสำหรับผู้สอน}
 
@@ -2567,7 +2562,7 @@ S_{sensor}=2000(0.015)+850=880\text{ mm}
     \end{tabularx}
 \end{table}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+
 
 \subsection{14. สื่อและแหล่งเรียนรู้เพิ่มเติม}
 
@@ -2604,7 +2599,7 @@ S_{sensor}=2000(0.015)+850=880\text{ mm}
     \item หลีกเลี่ยงวิดีโอที่แสดงการ Bypass Safety หรือเข้า Cell โดยไม่อธิบายบริบท
 \end{itemize}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+
 
 \subsection{15. เอกสารอ้างอิง}
 
@@ -2664,7 +2659,7 @@ Occupational Safety and Health Administration. (n.d.). \textit{The control of ha
     \item Mitsubishi MELFA-BASIC Programming Manual สำหรับ Controller ที่ใช้
 \end{itemize}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+
 
 \subsection{ภาคผนวก ก แบบฟอร์ม Daily Check}
 
@@ -2698,7 +2693,7 @@ Occupational Safety and Health Administration. (n.d.). \textit{The control of ha
 \textbf{ผลการตัดสิน:} \(\square\) พร้อมใช้งาน \(\square\) ใช้งานแบบเฝ้าระวัง \(\square\) ห้ามใช้งาน \\
 \textbf{ผู้อนุมัติ:} \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+
 
 \subsection{ภาคผนวก ข แบบฟอร์ม PM Record}
 
@@ -2731,7 +2726,7 @@ Occupational Safety and Health Administration. (n.d.). \textit{The control of ha
     \end{tabular}
 \end{table}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+
 
 \subsection{ภาคผนวก ค แบบฟอร์ม Troubleshooting Report}
 
@@ -2785,7 +2780,7 @@ Occupational Safety and Health Administration. (n.d.). \textit{The control of ha
     \item ผู้ปฏิบัติ/ผู้อนุมัติ: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 \end{itemize}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+
 
 \subsection{ภาคผนวก ง Checklist ตรวจโปรแกรมก่อน Automatic Mode}
 
@@ -2806,7 +2801,7 @@ Occupational Safety and Health Administration. (n.d.). \textit{The control of ha
 [ ] ผู้มีอำนาจอนุมัติ Automatic Mode แล้ว
 \end{verbatim}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+
 
 \subsection{ภาคผนวก จ Prompt ภาพประกอบรวม}
 
@@ -2887,6 +2882,6 @@ loops and a warning not to bypass safety. Clean engineering textbook vector
 style, bilingual Thai-English labels, white background, 16:9.
 \end{verbatim}
 
-\par\noindent\rule{\textwidth}{0.4pt}\par
+
 
 \textbf{สิ้นสุดบทที่ 8}
